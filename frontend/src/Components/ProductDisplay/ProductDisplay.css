@@ -1,0 +1,108 @@
+.productdisplay{
+    display : flex;
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 500;
+    margin: 2rem 0;
+}
+.productdisplay-left{
+    display: flex;
+    gap: 1rem;
+    float: left;
+}
+.productdisplay-img-list{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.productdisplay-img-list img{
+    height: 8rem;
+}
+.productdisplay-main-img{
+    width: 28rem;
+    height: 35rem;
+}
+.productdisplay-right{
+    display: flex;
+    flex-direction: column;
+    padding: .9rem 2rem;
+}
+.productdisplay-right h1{
+    font-size: 2rem;
+    font-weight: 700;
+}
+.productdisplay-right-stars{
+    display: flex;
+    align-items: center;
+    margin-top: .5rem;
+    gap: .3rem;
+    font-size: 1rem;
+}
+.productdisplay-right-stars p{
+    position: relative;
+    top: .5rem;
+    left: .3rem;
+}
+.productdisplay-right-prices{
+    display: flex;
+    margin: 1rem .5rem;
+    gap: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.productdisplay-right-price-old{
+    color: #4b4848;
+    text-decoration: line-through;
+}
+.productdisplay-right-size h1{
+    margin-top: .1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.productdisplay-right-sizes{
+    display: flex;
+    margin: 1rem 0;
+    gap: 1rem;
+}
+.productdisplay-right-sizes div{
+    padding: .5rem ;
+    background: #212121;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.productdisplay-right button{
+    padding: .5rem;
+    width: 10rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background: #212121;
+    margin-bottom: 1rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.productdisplay-right button:hover{
+    background-color: #E7EAE5;
+    color: black;
+    border: 3px solid black;
+}
+.productdisplay-right-category{
+    margin-top: .1rem;
+}
+.productdisplay-right-category span{
+    font-weight: 700;
+}
+@media(max-width: 746px){
+    .productdisplay-right{
+        float: left;
+    }
+    .productdisplay-img-list img{
+        height: 7rem;
+    }
+    .productdisplay-main-img{
+        width: 26.2rem;
+        height: 31rem;
+    }
+}

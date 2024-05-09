@@ -1,0 +1,66 @@
+.list-product{
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 62rem;
+    height: 78vh;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 6px;
+    background: #212121;
+    color: white;
+}
+.listproduct-format-main{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 600;
+}
+.listproduct-format{
+    align-items: center;
+    font-weight: 500;
+}
+.listproduct-product-icon{
+    height: 2rem;
+}
+.listproduct-remove-icon{
+    cursor: pointer;
+    margin: auto;
+}
+.listproduct-allproducts{
+    overflow-y: auto;
+}
+.listproduct-allproducts::-webkit-scrollbar {
+    display: none;
+}
+.listproduct-format-venus{
+    width: 60rem;
+}
+.listproduct-remove-icon-venus{
+    margin-left: 1rem;
+}
+@media(max-width:800px){
+    .list-product{
+        box-sizing: border-box;
+        width: 38rem;
+        height: 100%;
+        padding: 1rem 1rem;
+        margin: 1rem -3rem;
+        font-size: .5rem;
+    }
+    .listproduct-format-main{
+        padding: 1rem 0;
+        font-size: .8rem;
+    }
+    .listproduct-product-icon{
+        height: 2rem;
+    }
+    .listproduct-format-venus{
+        width: 36rem;
+    }
+}
