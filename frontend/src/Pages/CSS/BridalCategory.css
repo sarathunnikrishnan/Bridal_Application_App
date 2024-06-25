@@ -52,4 +52,8 @@
     .bridalcategory-loadmore{
         margin-left: 9rem;
     }
+    .bridalcategory-sort select option{
+        background-color: red;
+    }
 }
+

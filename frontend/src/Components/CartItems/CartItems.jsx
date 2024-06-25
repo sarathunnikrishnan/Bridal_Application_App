@@ -3,10 +3,48 @@ import './CartItems.css'
 import { BridalContext } from '../../Context/BridalContext'
 import remove_icon from '../Assets/cart_cross_icon.png'
 import { Container } from 'react-bootstrap'
+import axios from 'axios'
 
 const CartItems = () => {
 
-    const { all_product, cartItem, removeFromCart, getTotalCartAmount} = useContext(BridalContext)
+    const { all_product, cartItem, removeFromCart, getTotalCartAmount} = useContext(BridalContext);
+
+    const handlePayment = async()=>{
+      const orderUrl = "http://localhost:4000/order/makepayment";
+
+      const response = await axios.post(orderUrl, {
+        amount : getTotalCartAmount(),
+        currency : 'INR',
+        receipt : 'receipt#1'
+      });
+
+      const { id } = response.data;
+
+      const options = {
+        key : 'rzp_test_o2q5XRREjVhw6K',
+        amount : getTotalCartAmount() * 100,
+        currency : 'INR',
+        name : 'BLACK & WHITE',
+        description : 'Test Transaction',
+        order_id : id,
+        handler : function (response) {
+          console.log(response)
+          alert(`Payment ID: ${response.razorpay_payment_id }`);
+        },
+        prefill : {
+          name : "Sarath Unnikrishnan",
+          email : "sarathunnikrishnan18@gmail.com",
+          contact : '9961820377'
+        }
+      }
+
+      const rzp1 = new window.Razorpay(options);
+
+      rzp1.open();
+
+    }
+
+
   return (
     <div className='cartitems'>
       <Container>
@@ -59,9 +97,9 @@ const CartItems = () => {
               <p>₹{getTotalCartAmount()}</p>
             </div>
           </div>
-          <button>PROCCED TO CHECKOUT</button>
+          <button onClick={handlePayment}>PROCCED TO CHECKOUT</button>
         </div>
-        <div className="cartitems-promocode">
+        <div className="cartitems-promocode"> 
           <p>If you have a promo code, Enter it here</p>
           <div className="cartitem-promobox">
             <input type="text" placeholder='Promo Code' />

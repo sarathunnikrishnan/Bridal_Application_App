@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./CSS/LoginSignup.css";
 import axios from "axios";
+import { useNavigate} from 'react-router-dom';
 
 const LoginSignup = () => {
   const [state, setState] = useState("Log In");
+  let navigate = useNavigate()
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -13,6 +15,23 @@ const LoginSignup = () => {
   const changeHandler = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+ const handleVerifyOTP = async() => {
+    localStorage.setItem('formData', JSON.stringify(formData));
+
+    try {
+      const otpResponse = await axios.post('http://localhost:4000/useraccount/userotpsend', formData);
+    
+      if (otpResponse.data === "OTP Send Your Gmail Account") {
+        // Assuming `useNavigate` is properly set up
+        navigate('/verifyuserotp');
+      }else{
+        alert(otpResponse.data.error)
+      }
+    } catch (error) {
+      console.error('Error sending OTP:', error);
+    }
+};
 
   const login = async () => {
     console.log("Login Function Executed", formData);
@@ -27,7 +46,7 @@ const LoginSignup = () => {
     // })
     //   .then((response) => response.json())
     //   .then((data) => (responseData = data));
-    await  axios.post('http://localhost:4000/login', formData, {
+    await  axios.post('http://localhost:4000/useraccount/login', formData, {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
@@ -48,36 +67,36 @@ const LoginSignup = () => {
     }
   };
 
-  const signup = async () => {
-    console.log("signup Function Executed", formData);
-    let responseData;
-    // await fetch("http://localhost:4000/signup", {
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "application/form-data",
-    //     "content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(formData),
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => (responseData = data));
-    await axios.post('http://localhost:4000/signup', formData, {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      }
-    }).then(response=>{
-      responseData = response.data;
-    })
+  // const signup = async () => {
+  //   console.log("signup Function Executed", formData);
+  //   let responseData;
+  //   // await fetch("http://localhost:4000/signup", {
+  //   //   method: "POST",
+  //   //   headers: {
+  //   //     Accept: "application/form-data",
+  //   //     "content-Type": "application/json",
+  //   //   },
+  //   //   body: JSON.stringify(formData),
+  //   // })
+  //   //   .then((response) => response.json())
+  //   //   .then((data) => (responseData = data));
+  //   await axios.post('http://localhost:4000/useraccount/signup', formData, {
+  //     headers: {
+  //       Accept: 'application/json',
+  //       'Content-Type': 'application/json'
+  //     }
+  //   }).then(response=>{
+  //     responseData = response.data;
+  //   })
   
 
-    if (responseData.success) {
-      localStorage.setItem("auth-token", responseData.token);
-      window.location.replace("/");
-    } else {
-      alert(responseData.errors);
-    }
-  };
+  //   if (responseData.success) {
+  //     localStorage.setItem("auth-token", responseData.token);
+  //     window.location.replace("/");
+  //   } else {
+  //     alert(responseData.errors);
+  //   }
+  // };
 
   return (
     <div className="loginsignup">
@@ -112,7 +131,7 @@ const LoginSignup = () => {
         </div>
         <button
           onClick={() => {
-            state === "Log In" ? login() : signup();
+            state === "Log In" ? login() : handleVerifyOTP();  
           }}
         >
           Continue

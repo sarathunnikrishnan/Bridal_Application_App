@@ -1,0 +1,26 @@
+/* Container styling */
+.photography-sort {
+    margin: 10px;
+    padding: 10px;
+}
+
+/* Styling the select element */
+.photography-sort-select{
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #db1010;
+    background-color: #d61f1f;
+    color: #333;
+}
+
+/* Styling the options */
+.photography-sort option {
+    padding: 5px;
+    font-size: 16px;
+}
+
+h1{
+    font-size: large;
+    color: RED;
+}

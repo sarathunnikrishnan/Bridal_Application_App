@@ -42,7 +42,7 @@ const PhotoAddProduct = () => {
     formData.append("product", image1);
     formData.append("product", image2);
 
-    await fetch("http://localhost:4000/photoupload", {
+    await fetch("http://localhost:4000/image/photoupload", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -61,7 +61,7 @@ const PhotoAddProduct = () => {
       console.log(product.image+ " " + "image");
       console.log(product.image1+ " " + "image1");
       console.log(product.image2+ " " + "image2");
-      await fetch('http://localhost:4000/addproduct',{
+      await fetch('http://localhost:4000/product/addproduct',{
         method : 'POST',
         headers:{
           Accept:'application/json',

@@ -14,7 +14,7 @@ const NewCollections = () => {
       // },[]) 
 
       useEffect(()=>{
-        axios.get('http://localhost:4000/newcollections')
+        axios.get('http://localhost:4000/product/newcollections')
         .then(response => {
           setNew_collection(response.data);
        })

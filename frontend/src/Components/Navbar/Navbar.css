@@ -58,6 +58,99 @@
     display: flex;
     flex-direction: row;
 }
+
+
+.bridal-options input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border: 2px solid #212121;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .bridal-options input[type="text"]:focus {
+    border-color: #212121;
+  }
+  
+  .bridal-options button {
+    padding: 10.8px 20px;
+    border: 2px solid #212121;
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+    background-color: white;
+    color: #212121;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    font-style: normal;
+    position: relative;
+    top : -3px
+  }
+  
+  .bridal-options button:hover {
+    background-color: #212121;
+    color: white;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 746px){
     .nav-connect{
         padding-left: 8rem;

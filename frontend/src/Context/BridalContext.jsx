@@ -19,7 +19,7 @@ const BridalContextProvider = (props) => {
     // fetch('http://localhost:4000/allproducts')
     // .then((response)=>response.json())
     // .then((data)=>setAll_Product(data))
-    axios.get("http://localhost:4000/allproducts").then((response) => {
+    axios.get("http://localhost:4000/product/allproducts").then((response) => {
       setAll_Product(response.data);
     });
 
@@ -36,7 +36,7 @@ const BridalContextProvider = (props) => {
       // .then((data)=>setCartItems(data));
       axios
         .post(
-          "http://localhost:4000/getcart",
+          "http://localhost:4000/cart/getcart",
           {},
           {
             headers: {
@@ -69,7 +69,7 @@ const BridalContextProvider = (props) => {
     //   })
     //     .then((response) => response.json())
     //     .then((data) => console.log(data));
-    axios.post('http://localhost:4000/addtocart', { itemId: itemId }, {
+    axios.post('http://localhost:4000/cart/addtocart', { itemId: itemId }, {
         headers: {
           Accept: 'application/json',
           'auth-token': localStorage.getItem('auth-token'),
@@ -99,7 +99,7 @@ const BridalContextProvider = (props) => {
     //   })
     //     .then((response) => response.json())
     //     .then((data) => console.log(data));
-    axios.post('http://localhost:4000/removefromcart', { itemId: itemId }, {
+    axios.post('http://localhost:4000/cart/removefromcart', { itemId: itemId }, {
         headers: {
           Accept: 'application/json',
           'auth-token': localStorage.getItem('auth-token'),

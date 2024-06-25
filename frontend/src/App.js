@@ -18,6 +18,9 @@ import BridalProduct from './Pages/BridalProduct';
 import PhotographyProduct from './Pages/PhotographyProduct';
 import VenusProduct from './Pages/VenusProduct';
 import venus_banner from './Components/Assets/Venue/venue_banner.png'
+import VerifyUserOtp from './Pages/VerifyUserOtp';
+import SearchProducts from './Pages/SearchProducts';
+import PaymentSuccess from './Pages/PaymentSuccess';
 
 function App() {
   return (
@@ -44,7 +47,10 @@ function App() {
           <Route path='/catering' element={<Catering/>}/>
           <Route path='/cart' element={<Cart />}/>
           <Route path='/login' element={<LoginSignup />}/>
-        </Routes>
+          <Route path='/verifyuserotp' element={<VerifyUserOtp/>} /> 
+          <Route path='/search' element={<SearchProducts/>} />
+          <Route path='/payment' element={<PaymentSuccess/>} />
+        </Routes> 
         <Footer/>
       </BrowserRouter>
     </div>

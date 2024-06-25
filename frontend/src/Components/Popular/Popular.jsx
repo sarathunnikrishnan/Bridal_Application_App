@@ -14,11 +14,12 @@ const Popular = () => {
 //  },[])
 
    useEffect(()=>{
-       axios.get('http://localhost:4000/popularinwomen')
+       axios.get('http://localhost:4000/product/popularinwomen')
        .then(response => {
         setPopularProducts(response.data);
       })
    },[])
+
 
   return (
     <div className='popular'>

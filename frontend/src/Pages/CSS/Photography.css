@@ -54,3 +54,24 @@
         margin-left: 9rem;
     }
 }
+
+/* .photography-sort {
+    padding: 1px;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+  } */
+  
+  .sort-select {
+    margin-left: 1px;
+    width: 80px; 
+  }
+  
+  .sort__control {
+    display: flex;
+    align-items: center;
+  }
+  
+  .sort__indicators {
+    display: none;
+  }

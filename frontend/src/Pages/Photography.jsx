@@ -1,12 +1,46 @@
-import React,{ useContext} from 'react'
+import React,{ useContext, useState, useEffect } from 'react'
 import './CSS/Photography.css'
 import { BridalContext } from '../Context/BridalContext'
 import ItemsOther from '../Components/ItemsOther/ItemsOther'
 import { Container } from 'react-bootstrap'
-import dropdown_icon from '../Components/Assets/dropdown_icon.png'
+
 
 const Photography = (props) => {
-  const {all_product} = useContext(BridalContext)
+ const { all_product } = useContext(BridalContext);
+  const [allProduct, setAllProduct] = useState([]);
+
+  useEffect(() => {
+    setAllProduct(all_product);
+  }, [all_product]);
+
+  const selectHandler = (e) => {
+    const { value } = e.target;
+    let sortProduct = [];
+
+    for (let item of all_product) {
+      switch (value) {
+        case "lessthan75000":
+          if (item.new_price < 75000) {
+            sortProduct.push(item);
+          }
+          break;
+        case "75000-1000000":
+          if (item.new_price > 75000 && item.new_price < 100000) {
+            sortProduct.push(item);
+          }
+          break;
+        case "morethan100000":
+          if (item.new_price > 100000) {
+            sortProduct.push(item);
+          }
+          break;
+        default:
+          sortProduct.push(item);
+      }
+    }
+    setAllProduct(sortProduct);
+  };
+
   return (
     <div className='photography'>
       <Container>
@@ -16,12 +50,24 @@ const Photography = (props) => {
           <span>Showing 1-9</span> out of 36 products
         </p>
         <div className="photography-sort">
-           Sort by <img src={dropdown_icon} alt="" />
+        <select for="Sort" 
+           style={ {"color": "black",
+           "background" : "transparent",
+           "border": "transparent",
+           "font-size": "15px",
+           "width": "60px",
+           }} onChange={selectHandler}>
+            <option style={{background : "#8391A1",}} name="Sort" value="sort" selected>Sort</option>
+             <option style={{background : "#8391A1",}}  name="Sort" value="lessthan75000">less than 75000</option>
+             <option style={{background : "#8391A1",}}  name="Sort" value="75000-1000000">75000-100000</option>
+             <option style={{background : "#8391A1",}}  name="Sort" value="morethan100000">more than 100000</option>
+             <option style={{background : "#8391A1",}}  name="Sort" value="allproduct">All Product</option>
+        </select>
         </div>
       </div>
       <div className="photography-products">
         {
-          all_product.map((item, index)=>{
+          allProduct.map((item, index)=>{
            if(props.category === item.category){
               return (<ItemsOther key={index} id={item.id} name={item.name} place={item.place} image={item.image} new_price={item.new_price} old_price={item.old_price} category={item.category}/>)
             }
