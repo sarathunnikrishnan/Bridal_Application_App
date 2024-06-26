@@ -30,7 +30,7 @@ const CartItems = () => {
         order_id : id,
         handler : function (response) {
           // console.log(response)
-          navigate("/payment", {state :{ response : response, totalAmount : "20000"}});
+          navigate("/payment", {state :{ response : response, totalAmount : getTotalCartAmount()}});
           // alert(`Payment ID: ${response.razorpay_payment_id }`);
         },
         prefill : {

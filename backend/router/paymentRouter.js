@@ -26,6 +26,10 @@ router.post("/makepayment", async(req,res)=>{
     }
 })
 
+router.post("/purchasehistory", async(req,res)=>{
+    console.log(req);
+}); 
+
 
 module.exports = router; 
 

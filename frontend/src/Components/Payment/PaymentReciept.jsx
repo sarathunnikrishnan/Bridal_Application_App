@@ -3,13 +3,13 @@ import './PaymentReciept.css';
 import { BridalContext } from '../../Context/BridalContext';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
 
 const PaymentReciept = (props) => {
-   
    const { cartItem, removeFromCart, all_product } = useContext(BridalContext);
-   const { response , totalAmount} = props.value;
+   const { response , totalAmount } = props.value;
    const navigate = useNavigate(); 
-   const [purchaseHistory, setPurchaseHistory ] = useState({});
+   const [purchaseHistory, setPurchaseHistory ] = useState({}); 
   
 
  useEffect(()=>{
@@ -24,7 +24,25 @@ const PaymentReciept = (props) => {
     })
  },[cartItem,all_product,removeFromCart])
 
- console.log(purchaseHistory);
+ const orderHistory = () => {
+    const url = "http://localhost:4000/order/purchasehistory"
+    axios.post(url, purchaseHistory, {
+      headers: {
+        Accept: 'application/json',
+        'auth-token': localStorage.getItem('auth-token'),
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      console.log(response.data);
+    })
+    .catch(error => {
+      console.error('Error adding item to cart:', error);
+    });
+
+  }
+
+//  console.log(user.user, purchaseHistory, "PurchadeHistory")
 
   return (
     <div className="body">
@@ -42,7 +60,7 @@ const PaymentReciept = (props) => {
                             <p>Total Amount: <strong>₹{totalAmount}</strong></p>
                         </div>
                         <button class="btn btn-custom btn-lg" onClick={()=>navigate('/bridal')}>Continue Shopping</button>
-                        <a href="/order-history" class="btn btn-light btn-lg">View Order History</a>
+                        <button class="btn btn-light btn-lg" onClick={orderHistory}>View Order History</button>
                     </div>
                 </div>
             </div> 

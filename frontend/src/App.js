@@ -51,7 +51,7 @@ function App() {
           <Route path='/search' element={<SearchProducts/>} />
           <Route path='/payment' element={<PaymentSuccess/>} />
         </Routes> 
-        <Footer/>
+        <Footer/> 
       </BrowserRouter> 
     </div>
   );
