@@ -3,11 +3,10 @@ import CartItems from '../Components/CartItems/CartItems';
 import LoginSignup from './LoginSignup';
 
 const Cart = () => {
-  console.log(localStorage.getItem('auth_token'))
   return (
     <div>
       {
-        (!localStorage.getItem('auth_token')) ? (<LoginSignup/>) : (<CartItems/>)
+        (!localStorage.getItem('auth-token')) ? (<LoginSignup/>) : (<CartItems/>)
       }
     </div>
   )

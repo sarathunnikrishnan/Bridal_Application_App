@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './PaymentReciept.css';
 import { BridalContext } from '../../Context/BridalContext';
 import { useContext } from 'react';
@@ -6,18 +6,25 @@ import { useNavigate } from 'react-router-dom';
 
 const PaymentReciept = (props) => {
    
-    const { cartItem, removeFromCart, all_product } = useContext(BridalContext);
+   const { cartItem, removeFromCart, all_product } = useContext(BridalContext);
    const { response , totalAmount} = props.value;
    const navigate = useNavigate(); 
-//    console.log(cartItem, removeFromCart);    
+   const [purchaseHistory, setPurchaseHistory ] = useState({});
+  
 
  useEffect(()=>{
     all_product.forEach((e)=>{
           if(cartItem[e.id]>0){
+            setPurchaseHistory(prevHistory => ({
+                ...prevHistory,
+                [e.id]: (prevHistory[e.id] || 0) + 1
+            }));
              removeFromCart(e.id)
           }
     })
  },[cartItem,all_product,removeFromCart])
+
+ console.log(purchaseHistory);
 
   return (
     <div className="body">

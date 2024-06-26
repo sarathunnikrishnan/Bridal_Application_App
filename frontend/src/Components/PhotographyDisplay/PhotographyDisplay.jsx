@@ -5,11 +5,13 @@ import star_dull_icon from "../Assets/star_dull_icon.png";
 import { Container } from "react-bootstrap";
 import { BridalContext } from "../../Context/BridalContext";
 import ImageSlider from '../ImageSlider/ImageSlider';
+import { useNavigate } from 'react-router-dom';
 
 const PhotographyDisplay = (props) => {
 
     const { product } = props;
     const { addToCart } = useContext(BridalContext);
+    const navigate = useNavigate()
     
     const slider = {
         image : `${product.image}`,
@@ -48,7 +50,7 @@ const PhotographyDisplay = (props) => {
             making it over 2000 years old.
             </p>
         </div>
-        <button onClick={()=>{addToCart(product.id)}}>ADD TO CART</button>
+        <button onClick={()=>{(!localStorage.getItem('auth-token')) ?  (navigate('/login')) : (addToCart(product.id))}}>ADD TO CART</button>
         <p className="productdisplay-right-category">
             <span>Category :</span> Photo, Video
         </p>

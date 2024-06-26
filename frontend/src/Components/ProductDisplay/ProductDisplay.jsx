@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./ProductDisplay.css";
 import star_icon from "../Assets/star_icon.png";
 import star_dull_icon from "../Assets/star_dull_icon.png";
@@ -10,8 +10,20 @@ const ProductDisplay = (props) => {
 
   const { product } = props;
   const { addToCart } = useContext(BridalContext);
-  const user = localStorage.getItem('auth_token');
+  const [ user , setUser] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(()=>{
+        console.log(localStorage.getItem('auth-token'),"+++++++")
+         if(localStorage.getItem('auth-token')){
+             setUser(true);
+         }else{
+          setUser(false)
+         }
+  
+  },[user, setUser])
+
+  // console.log(user)
 
   return (
     <div className="productdisplay">

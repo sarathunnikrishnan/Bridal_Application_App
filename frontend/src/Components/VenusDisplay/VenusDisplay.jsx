@@ -4,11 +4,13 @@ import star_icon from "../Assets/star_icon.png";
 import star_dull_icon from "../Assets/star_dull_icon.png";
 import { Container } from "react-bootstrap";
 import { BridalContext } from "../../Context/BridalContext";
+import { useNavigate } from "react-router-dom";
 
 const VenusDisplay = (props) => {
   const [vegTotal, setVegTotal] = useState(0);
   const [nonTotal, setNonTotal] = useState(0);
   const [qtydisplay, setQtyDisplay] = useState(false);
+  const navigate = useNavigate()
 
   const { product } = props;
   const { addToCart } = useContext(BridalContext);
@@ -106,7 +108,7 @@ const VenusDisplay = (props) => {
           </div>
           <button
             onClick={() => {
-              HandleSubmit();
+             (!localStorage.getItem('auth-token')) ? (navigate('/login')) : (HandleSubmit())
             }}
           >
             ADD TO CART
