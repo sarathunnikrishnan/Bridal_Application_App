@@ -1,0 +1,37 @@
+.body{
+    background: url('https://example.com/background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Arial, sans-serif';
+            color: #fff;
+            margin-bottom: 50px;
+}
+.container {
+    margin-top: 50px;
+}
+.card {
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+}
+
+.card-title, .card-text{
+    color: #fff;
+}
+.card-body {
+    padding: 30px;
+}
+.btn-custom {
+    background: black;
+    border: none;
+    color: #fff;
+    margin: 20px;
+}
+.btn-custom:hover {
+    background: white;
+    color: black;
+}
+.order-summary {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+}
