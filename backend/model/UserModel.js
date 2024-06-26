@@ -19,6 +19,9 @@ const Users = mongoose.model('Users',{
     cartData:{
         type:Object,
     },
+    orderHistory :{
+        type : Object
+    },
     Date:{
         type:Date,
         default:Date.now,

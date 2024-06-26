@@ -3,14 +3,13 @@ import './PaymentReciept.css';
 import { BridalContext } from '../../Context/BridalContext';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'
+import axios from 'axios';
 
 const PaymentReciept = (props) => {
    const { cartItem, removeFromCart, all_product } = useContext(BridalContext);
    const { response , totalAmount } = props.value;
    const navigate = useNavigate(); 
    const [purchaseHistory, setPurchaseHistory ] = useState({}); 
-  
 
  useEffect(()=>{
     all_product.forEach((e)=>{
@@ -25,8 +24,7 @@ const PaymentReciept = (props) => {
  },[cartItem,all_product,removeFromCart])
 
  const orderHistory = () => {
-    const url = "http://localhost:4000/order/purchasehistory"
-    axios.post(url, purchaseHistory, {
+    axios.post('http://localhost:4000/order/purchasehistory', purchaseHistory, {
       headers: {
         Accept: 'application/json',
         'auth-token': localStorage.getItem('auth-token'),
@@ -34,10 +32,10 @@ const PaymentReciept = (props) => {
       }
     })
     .then(response => {
-      console.log(response.data);
+      console.log(response);
     })
     .catch(error => {
-      console.error('Error adding item to cart:', error);
+      console.log('Error Add Purchase History:', error);
     });
 
   }
