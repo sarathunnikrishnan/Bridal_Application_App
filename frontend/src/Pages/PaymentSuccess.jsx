@@ -3,7 +3,8 @@ import PaymentReciept from '../Components/Payment/PaymentReciept'
 import { useLocation } from 'react-router-dom'
 
 const PaymentSuccess = () => {
-  const { state } = useLocation();
+  const location = useLocation();
+  const { state } = location || {};
   return (
     <div>
         <PaymentReciept value={state}/> 
