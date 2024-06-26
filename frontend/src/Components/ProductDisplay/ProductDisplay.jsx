@@ -4,11 +4,14 @@ import star_icon from "../Assets/star_icon.png";
 import star_dull_icon from "../Assets/star_dull_icon.png";
 import { Container } from "react-bootstrap";
 import { BridalContext } from "../../Context/BridalContext";
+import { useNavigate } from "react-router-dom";
 
 const ProductDisplay = (props) => {
 
   const { product } = props;
   const { addToCart } = useContext(BridalContext);
+  const user = localStorage.getItem('auth_token');
+  const navigate = useNavigate();
 
   return (
     <div className="productdisplay">
@@ -59,11 +62,11 @@ const ProductDisplay = (props) => {
                 <div>XXL</div>
             </div>
         </div>
-        <button onClick={()=>{addToCart(product.id)}}>ADD TO CART</button>
+        <button onClick={()=>{(!user)? (navigate("/login")) : (addToCart(product.id))}}>ADD TO CART</button>
         <p className="productdisplay-right-category">
             <span>Category :</span> Women, Bridal, Saree
-        </p>
-        <p className="productdisplay-right-category">
+        </p> 
+        <p className="productdisplay-right-category">  
             <span>Tags :</span> Modern, Latest
         </p>
       </div>

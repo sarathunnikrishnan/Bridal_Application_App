@@ -5,7 +5,7 @@ import { Container } from 'react-bootstrap';
 
 const Breadcrums = (props) => {
     const {product} = props;
-    console.log(product)
+    // console.log(product)
   return (
     <div className='breadcrum'>
       <Container>
