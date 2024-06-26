@@ -4,10 +4,11 @@ import { BridalContext } from '../../Context/BridalContext'
 import remove_icon from '../Assets/cart_cross_icon.png'
 import { Container } from 'react-bootstrap'
 import axios from 'axios'
-
+import { useNavigate } from 'react-router-dom'
 const CartItems = () => {
 
     const { all_product, cartItem, removeFromCart, getTotalCartAmount} = useContext(BridalContext);
+    const navigate = useNavigate();
 
     const handlePayment = async()=>{
       const orderUrl = "http://localhost:4000/order/makepayment";
@@ -29,7 +30,8 @@ const CartItems = () => {
         order_id : id,
         handler : function (response) {
           console.log(response)
-          alert(`Payment ID: ${response.razorpay_payment_id }`);
+          navigate("/payment", {state : response});
+          // alert(`Payment ID: ${response.razorpay_payment_id }`);
         },
         prefill : {
           name : "Sarath Unnikrishnan",

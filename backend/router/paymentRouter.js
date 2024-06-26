@@ -18,7 +18,7 @@ router.post("/makepayment", async(req,res)=>{
             currency,
             receipt
         })
-
+ 
         console.log(payment)
         return res.json(payment)
     }catch(error){

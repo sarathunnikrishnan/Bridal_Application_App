@@ -52,7 +52,7 @@ function App() {
           <Route path='/payment' element={<PaymentSuccess/>} />
         </Routes> 
         <Footer/>
-      </BrowserRouter>
+      </BrowserRouter> 
     </div>
   );
 }
