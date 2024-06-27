@@ -4,6 +4,7 @@ const Users = require('../model/UserModel');
 const jwt = require("jsonwebtoken");
 const userotp = require("../model/userOtpModel");
 const sendMail = require("../common/nodemailer");
+const bcrypt = require("bcrypt");
 
 
 // Creating Endpoint  for registering the user
@@ -28,6 +29,7 @@ useraccountrouter.post('/signup',async(req,res,next)=>{
     const { formData } = req.body;
         const parsedFormData = JSON.parse(formData)
         const { username, email, password} =  parsedFormData;  
+        const passwordHash = await bcrypt.hash(password, 10)
     let check = await Users.findOne({email});
     if(check){
      return res.status(400).json({success:false, errors:"Existing User Found With Same Email Address"})
@@ -39,7 +41,7 @@ useraccountrouter.post('/signup',async(req,res,next)=>{
     const user = new Users({
      name : username,
      email : email,
-     password : password,
+     password : passwordHash,
      cartData: cart,
     })
 
@@ -60,7 +62,7 @@ useraccountrouter.post('/signup',async(req,res,next)=>{
  useraccountrouter.post('/login', async(req,res)=>{
      let user = await Users.findOne({email:req.body.email});
      if(user){
-         const passCompare = req.body.password === user.password;
+         const passCompare = await bcrypt.compare(req.body.password , user.password)
          if(passCompare){
              const data = {
                  user: {
