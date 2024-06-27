@@ -71,3 +71,10 @@
     position: relative;
     top: -.5rem;
 }
+
+.error-message{
+    color : white;
+    margin: -12px;
+    text-align: center;
+    font-size: 12px;
+}

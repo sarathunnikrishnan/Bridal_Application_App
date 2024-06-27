@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const userotp = require("../model/userOtpModel");
 const sendMail = require("../common/nodemailer");
 const bcrypt = require("bcrypt");
+const validation = require('../common/validation');
 
 
 // Creating Endpoint  for registering the user
@@ -59,7 +60,16 @@ useraccountrouter.post('/signup',async(req,res,next)=>{
  })
  
  // creating End Point for User Login
- useraccountrouter.post('/login', async(req,res)=>{
+ useraccountrouter.post('/login',(req,res,next)=>{
+    if(validation.validateEmail("Email ", req.body.email) !== ""){
+        return res.json({success : false, error: validation.validateEmail("Email ", req.body.email)})
+     }
+     if(!req.body.password){
+        return res.json({success: false , error: "Please Enter Your Password"})
+     }
+    
+     next();
+ }, async(req,res)=>{
      let user = await Users.findOne({email:req.body.email});
      if(user){
          const passCompare = await bcrypt.compare(req.body.password , user.password)
@@ -79,7 +89,23 @@ useraccountrouter.post('/signup',async(req,res,next)=>{
      }
  })
 
-useraccountrouter.post('/userotpsend', async(req,res)=>{
+useraccountrouter.post('/userotpsend',(req,res,next)=>{
+
+    const { username, email, password} = req.body;
+
+         if(validation.validateStr("Username", username) !== ""){
+            return res.json({success : false, error: validation.validateStr("Username", username)})
+         }
+         if(validation.validateEmail("Email ", email) !== ""){
+            return res.json({success : false, error: validation.validateEmail("Email ", email)})
+         }
+         if(validation.validatePassword("Password", password) !== ""){
+            return res.json({success : false, error : validation.validatePassword("Password", password)})
+         }
+    
+         next();
+
+}, async(req,res)=>{
 
     const { email, username } = req.body; 
     console.log(email)

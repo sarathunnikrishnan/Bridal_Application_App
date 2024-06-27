@@ -11,6 +11,7 @@ const LoginSignup = () => {
     password: "",
     email: "",
   });
+  const [message, setMessage] = useState("");  
 
   const changeHandler = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -26,12 +27,12 @@ const LoginSignup = () => {
         // Assuming `useNavigate` is properly set up
         navigate('/verifyuserotp');
       }else{
-        alert(otpResponse.data.error)
+        setMessage(otpResponse.data.error)
       }
     } catch (error) {
       console.error('Error sending OTP:', error);
     }
-};
+};  
 
   const login = async () => {
     console.log("Login Function Executed", formData);
@@ -63,10 +64,11 @@ const LoginSignup = () => {
       localStorage.setItem("auth-token", responseData.token);
       window.location.replace("/");
     } else {
-      alert(responseData.errors);
+      setMessage(responseData.error);
     }
   };
 
+  
   // const signup = async () => {
   //   console.log("signup Function Executed", formData);
   //   let responseData;
@@ -104,13 +106,16 @@ const LoginSignup = () => {
         <h1>{state}</h1>
         <div className="loginsignup-fields">
           {state === "Sign Up" ? (
+            <>
             <input
               name="username"
               value={formData.username}
               onChange={changeHandler}
               type="text"
-              placeholder="Your Name"
+              placeholder="Your Name" 
             />
+            {(message.toLocaleLowerCase().includes("username")) ? (<p className="error-message">{message}</p>) : null}
+            </>
           ) : (
             <></>
           )}
@@ -121,6 +126,7 @@ const LoginSignup = () => {
             type="email"
             placeholder="Email Address"
           />
+          {(message.toLocaleLowerCase().includes("email")) ? (<p className="error-message">{message}</p>) : null}
           <input
             name="password"
             value={formData.password}
@@ -128,6 +134,7 @@ const LoginSignup = () => {
             type="password"
             placeholder="Create Password"
           />
+          {(message.toLocaleLowerCase().includes("password")) ? (<p className="error-message">{message}</p>) : null}
         </div>
         <button
           onClick={() => {
