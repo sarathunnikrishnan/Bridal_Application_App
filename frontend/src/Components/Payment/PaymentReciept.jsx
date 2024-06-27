@@ -1,44 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import './PaymentReciept.css';
 import { BridalContext } from '../../Context/BridalContext';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 
 const PaymentReciept = (props) => {
    const { cartItem, removeFromCart, all_product } = useContext(BridalContext);
    const { response , totalAmount } = props.value;
    const navigate = useNavigate(); 
-   const [purchaseHistory, setPurchaseHistory ] = useState({}); 
 
  useEffect(()=>{
     all_product.forEach((e)=>{
           if(cartItem[e.id]>0){
-            setPurchaseHistory(prevHistory => ({
-                ...prevHistory,
-                [e.id]: (prevHistory[e.id] || 0) + 1
-            }));
              removeFromCart(e.id)
           }
     })
  },[cartItem,all_product,removeFromCart])
-
- const orderHistory = () => {
-    axios.post('http://localhost:4000/order/purchasehistory', purchaseHistory, {
-      headers: {
-        Accept: 'application/json',
-        'auth-token': localStorage.getItem('auth-token'),
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(response => {
-      console.log(response);
-    })
-    .catch(error => {
-      console.log('Error Add Purchase History:', error);
-    });
-
-  }
 
 //  console.log(user.user, purchaseHistory, "PurchadeHistory")
 
@@ -58,7 +35,6 @@ const PaymentReciept = (props) => {
                             <p>Total Amount: <strong>₹{totalAmount}</strong></p>
                         </div>
                         <button class="btn btn-custom btn-lg" onClick={()=>navigate('/bridal')}>Continue Shopping</button>
-                        <button class="btn btn-light btn-lg" onClick={orderHistory}>View Order History</button>
                     </div>
                 </div>
             </div> 
