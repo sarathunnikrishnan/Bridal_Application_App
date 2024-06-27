@@ -14,10 +14,19 @@ const BridalCategory = (props) => {
 
   const selectHandler = (e) => {
     const { value } = e.target;
+    const Product = [...all_product]
     let sortProduct = [];
 
     for (let item of all_product) {
       switch (value) {
+        case "lowtohigh":
+          const sortLowtohigh = Product.sort((a,b) => a.new_price - b.new_price);
+          sortProduct = sortLowtohigh
+          break;
+          case "hightolow":
+            const sorthightolow = Product.sort((a,b) => b.new_price - a.new_price);
+            sortProduct = sorthightolow
+            break;
         case "lessthan10000":
           if (props.category === item.category && item.new_price < 10000) {
             sortProduct.push(item);
@@ -34,7 +43,7 @@ const BridalCategory = (props) => {
           }
           break;
         default:
-          sortProduct.push(item);
+          sortProduct = [...all_product]
       }
     }
     setAllProduct(sortProduct);
@@ -75,6 +84,20 @@ const BridalCategory = (props) => {
                 selected
               >
                 Sort
+              </option>
+              <option
+                style={{ background: "#8391A1", width: "30px" }}
+                name="Sort"
+                value="lowtohigh" 
+              >
+                Low to High Price
+              </option>
+              <option
+                style={{ background: "#8391A1", width: "30px" }}
+                name="Sort"
+                value="hightolow" 
+              >
+                High to Low Price
               </option>
               <option
                 style={{ background: "#8391A1", width: "30px" }}

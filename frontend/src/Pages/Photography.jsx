@@ -15,10 +15,19 @@ const Photography = (props) => {
 
   const selectHandler = (e) => {
     const { value } = e.target;
+    const Product = [...all_product]
     let sortProduct = [];
 
     for (let item of all_product) {
       switch (value) {
+        case "lowtohigh":
+          const sortLowtohigh = Product.sort((a,b) => a.new_price - b.new_price);
+          sortProduct = sortLowtohigh
+          break;
+          case "hightolow":
+            const sorthightolow = Product.sort((a,b) => b.new_price - a.new_price);
+            sortProduct = sorthightolow
+            break;
         case "lessthan75000":
           if (item.new_price < 75000) {
             sortProduct.push(item);
@@ -35,7 +44,7 @@ const Photography = (props) => {
           }
           break;
         default:
-          sortProduct.push(item);
+          sortProduct = [...all_product];
       }
     }
     setAllProduct(sortProduct);
@@ -58,6 +67,8 @@ const Photography = (props) => {
            "width": "60px",
            }} onChange={selectHandler}>
             <option style={{background : "#8391A1",}} name="Sort" value="sort" selected>Sort</option>
+            <option style={{background : "#8391A1",}} name="Sort" value="lowtohigh" selected>Low - High Price</option>
+            <option style={{background : "#8391A1",}} name="Sort" value="hightolow" selected>High - Low Price</option>
              <option style={{background : "#8391A1",}}  name="Sort" value="lessthan75000">less than 75000</option>
              <option style={{background : "#8391A1",}}  name="Sort" value="75000-1000000">75000-100000</option>
              <option style={{background : "#8391A1",}}  name="Sort" value="morethan100000">more than 100000</option>
