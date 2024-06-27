@@ -114,7 +114,7 @@ const LoginSignup = () => {
               type="text"
               placeholder="Your Name" 
             />
-            {(message.toLocaleLowerCase().includes("username")) ? (<p className="error-message">{message}</p>) : null}
+            {(message.toLocaleLowerCase().includes("username")) ? (<p className="error-message">{message} !!!</p>) : null}
             </>
           ) : (
             <></>
@@ -126,15 +126,15 @@ const LoginSignup = () => {
             type="email"
             placeholder="Email Address"
           />
-          {(message.toLocaleLowerCase().includes("email")) ? (<p className="error-message">{message}</p>) : null}
+          {(message.toLocaleLowerCase().includes("email")) ? (<p className="error-message">{message} !!!</p>) : null}
           <input
             name="password"
-            value={formData.password}
+            value={formData.password} 
             onChange={changeHandler}
             type="password"
             placeholder="Create Password"
           />
-          {(message.toLocaleLowerCase().includes("password")) ? (<p className="error-message">{message}</p>) : null}
+          {(message.toLocaleLowerCase().includes("password")) ? (<p className="error-message">{message} !!!</p>) : null}
         </div>
         <button
           onClick={() => {
