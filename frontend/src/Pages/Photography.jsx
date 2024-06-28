@@ -67,8 +67,8 @@ const Photography = (props) => {
            "width": "60px",
            }} onChange={selectHandler}>
             <option style={{background : "#8391A1",}} name="Sort" value="sort" selected>Sort</option>
-            <option style={{background : "#8391A1",}} name="Sort" value="lowtohigh" selected>Low - High Price</option>
-            <option style={{background : "#8391A1",}} name="Sort" value="hightolow" selected>High - Low Price</option>
+            <option style={{background : "#8391A1",}} name="Sort" value="lowtohigh" >Low - High Price</option>
+            <option style={{background : "#8391A1",}} name="Sort" value="hightolow" >High - Low Price</option>
              <option style={{background : "#8391A1",}}  name="Sort" value="lessthan75000">less than 75000</option>
              <option style={{background : "#8391A1",}}  name="Sort" value="75000-1000000">75000-100000</option>
              <option style={{background : "#8391A1",}}  name="Sort" value="morethan100000">more than 100000</option>
