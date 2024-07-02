@@ -147,6 +147,8 @@ const BridalContextProvider = (props) => {
     getTotalCartItems,
   };
 
+  console.log("Props.Children", props.children)
+
   return (
     <BridalContext.Provider value={contextValue}>
       {props.children}

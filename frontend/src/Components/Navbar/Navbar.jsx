@@ -120,7 +120,7 @@ const Navbar = () => {
           </ul>
           <div className="cart-div">
             <Nav.Link as={Link} to="cart">
-              <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-cart-shopping"></i>
             </Nav.Link>
             <div className="nav-connect-cart">{getTotalCartItems()}</div>
           </div>
