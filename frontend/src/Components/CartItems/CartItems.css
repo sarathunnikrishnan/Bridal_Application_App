@@ -1,0 +1,102 @@
+.cartitems{
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 500;
+}
+.cartitems hr{
+    height: 1rem;
+}
+.cartitems-format-main{
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 0;
+    font-size: 1rem;
+    font-weight: 700;
+}
+.cartitems-format{
+    font-size: 1rem;
+    font-weight: 600;
+}
+.carticon-product-icon{
+    height: 62px;
+}
+.cartitems-remove-icon{
+    width: .5rem;
+    margin: 2rem;
+    cursor: pointer;
+}
+.cartitems-quantity{
+    width: 64px;
+    height: 50px;
+    border: 2px solid #212121;
+    font-weight: 600;
+}
+.cartitems-down{
+    display: flex;
+    margin-bottom: 2rem;
+
+}
+.cartitems-total{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    gap: 1rem;
+}
+.cartitems-total-item{
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem 0;
+}
+.cartitems-total button{
+    width: 16rem;
+    height: 2rem;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background: #212121;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+.cartitems-promocode{
+    flex: 1;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 8rem;
+}
+.cartitem-promobox{
+    margin-top: 1rem;
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+.cartitem-promobox input{
+    border: 1px solid #212121;
+    border-radius: 10px;
+    outline: none;
+    padding: .5rem;
+    background: transparent;
+    font-size: 1rem;
+    width: 15rem;
+    height: 2rem;
+}
+.cartitem-promobox button{
+    width: 5rem;
+    height: 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 10px;
+    margin: .5rem;
+    background: #212121;
+    color: white;
+    cursor: pointer;
+}
+@media (max-width: 746px){
+    .cartitem-promobox input{
+        width: 10rem;
+    }
+}

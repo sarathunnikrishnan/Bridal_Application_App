@@ -1,0 +1,21 @@
+.imageslider{
+    width: 41rem;
+    height: 25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.imageslider img{
+    width: 40rem;
+}
+@media(max-width: 746px){
+    .imageslider{
+        width: 31rem;
+        height: 21rem;
+    }
+    .imageslider img{
+        width: 30rem;
+        height: 20rem;
+    }
+}

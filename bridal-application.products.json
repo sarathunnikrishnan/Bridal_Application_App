@@ -1,0 +1,930 @@
+ // database Name : bridal-application
+ // collection Name : products
+
+[{
+  "_id": {
+    "$oid": "65f3ea3fc494fc890956b1e1"
+  },
+  "id": 1,
+  "name": "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
+  "image": "http://localhost:4000/images/product_1710484031544.png",
+  "category": "women",
+  "new_price": 46890,
+  "old_price": 48768,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:27:11.660Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3ea72c494fc890956b1e6"
+  },
+  "id": 2,
+  "name": "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
+  "image": "http://localhost:4000/images/product_1710484082035.png",
+  "category": "women",
+  "new_price": 39999,
+  "old_price": 49000,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:28:02.114Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3ea9bc494fc890956b1e9"
+  },
+  "id": 3,
+  "name": "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
+  "image": "http://localhost:4000/images/product_1710484123275.png",
+  "category": "women",
+  "new_price": 44999,
+  "old_price": 46999,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:28:43.304Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3eab7c494fc890956b1ec"
+  },
+  "id": 4,
+  "name": "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
+  "image": "http://localhost:4000/images/product_1710484151031.png",
+  "category": "women",
+  "new_price": 24999,
+  "old_price": 25999,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:29:11.043Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3eadcc494fc890956b1ef"
+  },
+  "id": 5,
+  "name": "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
+  "image": "http://localhost:4000/images/product_1710484188870.png",
+  "category": "women",
+  "new_price": 4999,
+  "old_price": 5499,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:29:48.893Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3eb09c494fc890956b1f2"
+  },
+  "id": 6,
+  "name": "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
+  "image": "http://localhost:4000/images/product_1710484233745.png",
+  "category": "women",
+  "new_price": 5499,
+  "old_price": 6999,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:30:33.758Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3eb28c494fc890956b1f5"
+  },
+  "id": 7,
+  "name": "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
+  "image": "http://localhost:4000/images/product_1710484264166.png",
+  "category": "women",
+  "new_price": 2499,
+  "old_price": 2999,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:31:04.192Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3eb51c494fc890956b1f8"
+  },
+  "id": 8,
+  "name": "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
+  "image": "http://localhost:4000/images/product_1710484305450.png",
+  "category": "women",
+  "new_price": 11999,
+  "old_price": 12999,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:31:45.464Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3eb75c494fc890956b1fb"
+  },
+  "id": 9,
+  "name": "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
+  "image": "http://localhost:4000/images/product_1710484341194.png",
+  "category": "women",
+  "new_price": 39999,
+  "old_price": 41999,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:32:21.210Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3eb92c494fc890956b1fe"
+  },
+  "id": 10,
+  "name": "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
+  "image": "http://localhost:4000/images/product_1710484370379.png",
+  "category": "women",
+  "new_price": 52999,
+  "old_price": 49999,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:32:50.399Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3ec34c494fc890956b201"
+  },
+  "id": 11,
+  "name": "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
+  "image": "http://localhost:4000/images/product_1710484531985.png",
+  "category": "women",
+  "new_price": 12999,
+  "old_price": 14999,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:35:32.064Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3ec52c494fc890956b204"
+  },
+  "id": 12,
+  "name": "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
+  "image": "http://localhost:4000/images/product_1710484562296.png",
+  "category": "women",
+  "new_price": 5999,
+  "old_price": 6499,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:36:02.324Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3ec97c494fc890956b209"
+  },
+  "id": 13,
+  "name": "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
+  "image": "http://localhost:4000/images/product_1710484631849.png",
+  "category": "men",
+  "new_price": 3499,
+  "old_price": 3999,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:37:11.877Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3ecb8c494fc890956b20c"
+  },
+  "id": 14,
+  "name": "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
+  "image": "http://localhost:4000/images/product_1710484664863.png",
+  "category": "men",
+  "new_price": 25999,
+  "old_price": 26999,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:37:44.881Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3ecd7c494fc890956b20f"
+  },
+  "id": 15,
+  "name": "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
+  "image": "http://localhost:4000/images/product_1710484695478.png",
+  "category": "men",
+  "new_price": 1999,
+  "old_price": 2499,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:38:15.504Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3ecf7c494fc890956b212"
+  },
+  "id": 16,
+  "name": "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
+  "image": "http://localhost:4000/images/product_1710484727411.png",
+  "category": "men",
+  "new_price": 3999,
+  "old_price": 4499,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:38:47.430Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3ed16c494fc890956b215"
+  },
+  "id": 17,
+  "name": "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
+  "image": "http://localhost:4000/images/product_1710484758353.png",
+  "category": "men",
+  "new_price": 11999,
+  "old_price": 12499,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:39:18.381Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3ed4fc494fc890956b218"
+  },
+  "id": 18,
+  "name": "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
+  "image": "http://localhost:4000/images/product_1710484815750.png",
+  "category": "men",
+  "new_price": 19999,
+  "old_price": 20999,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:40:15.774Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3ed6ec494fc890956b21b"
+  },
+  "id": 19,
+  "name": "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
+  "image": "http://localhost:4000/images/product_1710484846774.png",
+  "category": "men",
+  "new_price": 7999,
+  "old_price": 8499,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:40:46.797Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3ed8cc494fc890956b21e"
+  },
+  "id": 20,
+  "name": "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
+  "image": "http://localhost:4000/images/product_1710484876078.png",
+  "category": "men",
+  "new_price": 8999,
+  "old_price": 9499,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:41:16.104Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3edaec494fc890956b221"
+  },
+  "id": 21,
+  "name": "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
+  "image": "http://localhost:4000/images/product_1710484910589.png",
+  "category": "men",
+  "new_price": 3999,
+  "old_price": 4999,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:41:50.602Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3edc9c494fc890956b224"
+  },
+  "id": 22,
+  "name": "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
+  "image": "http://localhost:4000/images/product_1710484937623.png",
+  "category": "men",
+  "new_price": 16999,
+  "old_price": 17999,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:42:17.642Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3edf0c494fc890956b227"
+  },
+  "id": 23,
+  "name": "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
+  "image": "http://localhost:4000/images/product_1710484976920.png",
+  "category": "men",
+  "new_price": 6999,
+  "old_price": 7499,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:42:56.940Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3ee16c494fc890956b22a"
+  },
+  "id": 24,
+  "name": "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
+  "image": "http://localhost:4000/images/product_1710485014166.png",
+  "category": "men",
+  "new_price": 12999,
+  "old_price": 14999,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:43:34.194Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3f08ec494fc890956b22f"
+  },
+  "id": 25,
+  "name": "Boys Orange Colourblocked Hooded Sweatshirt",
+  "image": "http://localhost:4000/images/product_1710485646093.png",
+  "category": "kid",
+  "new_price": 2499,
+  "old_price": 2999,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:54:06.201Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3f0a9c494fc890956b232"
+  },
+  "id": 26,
+  "name": "Boys Orange Colourblocked Hooded Sweatshirt",
+  "image": "http://localhost:4000/images/product_1710485673521.png",
+  "category": "kid",
+  "new_price": 2999,
+  "old_price": 3499,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:54:33.575Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3f0c2c494fc890956b235"
+  },
+  "id": 27,
+  "name": "Boys Orange Colourblocked Hooded Sweatshirt",
+  "image": "http://localhost:4000/images/product_1710485698642.png",
+  "category": "kid",
+  "new_price": 1999,
+  "old_price": 2499,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:54:58.671Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3f0d9c494fc890956b238"
+  },
+  "id": 28,
+  "name": "Boys Orange Colourblocked Hooded Sweatshirt",
+  "image": "http://localhost:4000/images/product_1710485721470.png",
+  "category": "kid",
+  "new_price": 1699,
+  "old_price": 2499,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:55:21.502Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3f0f2c494fc890956b23b"
+  },
+  "id": 29,
+  "name": "Boys Orange Colourblocked Hooded Sweatshirt",
+  "image": "http://localhost:4000/images/product_1710485746295.png",
+  "category": "kid",
+  "new_price": 5999,
+  "old_price": 6999,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:55:46.317Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3f10dc494fc890956b23e"
+  },
+  "id": 30,
+  "name": "Boys Orange Colourblocked Hooded Sweatshirt",
+  "image": "http://localhost:4000/images/product_1710485773619.png",
+  "category": "kid",
+  "new_price": 3999,
+  "old_price": 4999,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:56:13.651Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3f12ac494fc890956b241"
+  },
+  "id": 31,
+  "name": "Boys Orange Colourblocked Hooded Sweatshirt",
+  "image": "http://localhost:4000/images/product_1710485802791.png",
+  "category": "kid",
+  "new_price": 3999,
+  "old_price": 4499,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:56:42.809Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3f145c494fc890956b244"
+  },
+  "id": 32,
+  "name": "Boys Orange Colourblocked Hooded Sweatshirt",
+  "image": "http://localhost:4000/images/product_1710485829594.png",
+  "category": "kid",
+  "new_price": 5999,
+  "old_price": 6999,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:57:09.624Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3f15dc494fc890956b247"
+  },
+  "id": 33,
+  "name": "Boys Orange Colourblocked Hooded Sweatshirt",
+  "image": "http://localhost:4000/images/product_1710485853521.png",
+  "category": "kid",
+  "new_price": 1999,
+  "old_price": 2499,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:57:33.540Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3f176c494fc890956b24a"
+  },
+  "id": 34,
+  "name": "Boys Orange Colourblocked Hooded Sweatshirt",
+  "image": "http://localhost:4000/images/product_1710485878922.png",
+  "category": "kid",
+  "new_price": 5999,
+  "old_price": 6999,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:57:58.946Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3f18dc494fc890956b24d"
+  },
+  "id": 35,
+  "name": "Boys Orange Colourblocked Hooded Sweatshirt",
+  "image": "http://localhost:4000/images/product_1710485901712.png",
+  "category": "kid",
+  "new_price": 3499,
+  "old_price": 4999,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:58:21.741Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f3f1abc494fc890956b250"
+  },
+  "id": 36,
+  "name": "Boys Orange Colourblocked Hooded Sweatshirt",
+  "image": "http://localhost:4000/images/product_1710485931634.png",
+  "category": "kid",
+  "new_price": 1999,
+  "old_price": 2499,
+  "available": true,
+  "date": {
+    "$date": "2024-03-15T06:58:51.680Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f7e9711fd27d72ed5489a2"
+  },
+  "id": 37,
+  "name": "Magic Wand Productions",
+  "place": "Vyttila, Ernakulam",
+  "image": "http://localhost:4000/images/product_1710745969131.png",
+  "image1": "http://localhost:4000/images/product_1710745969133.png",
+  "image2": "http://localhost:4000/images/product_1710745969183.png",
+  "category": "Photo & Video Per Day",
+  "new_price": 65000,
+  "old_price": 70000,
+  "available": true,
+  "date": {
+    "$date": "2024-03-18T07:12:49.226Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f7e9f31fd27d72ed5489a7"
+  },
+  "id": 38,
+  "name": "Vijayanand Photography",
+  "place": "Ernakulam",
+  "image": "http://localhost:4000/images/product_1710746099011.png",
+  "image1": "http://localhost:4000/images/product_1710746099016.png",
+  "image2": "http://localhost:4000/images/product_1710746099032.png",
+  "category": "Photo & Video Per Day",
+  "new_price": 55000,
+  "old_price": 60000,
+  "available": true,
+  "date": {
+    "$date": "2024-03-18T07:14:59.052Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f7ea411fd27d72ed5489aa"
+  },
+  "id": 39,
+  "name": "The WedMaker",
+  "place": "Ernakulam",
+  "image": "http://localhost:4000/images/product_1710746177303.png",
+  "image1": "http://localhost:4000/images/product_1710746177312.png",
+  "image2": "http://localhost:4000/images/product_1710746177315.png",
+  "category": "Photo & Video Per Day",
+  "new_price": 65000,
+  "old_price": 70000,
+  "available": true,
+  "date": {
+    "$date": "2024-03-18T07:16:17.344Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f7ea7e1fd27d72ed5489ad"
+  },
+  "id": 40,
+  "name": "Wedbuk",
+  "place": "Ernakulam",
+  "image": "http://localhost:4000/images/product_1710746238723.png",
+  "image1": "http://localhost:4000/images/product_1710746238726.png",
+  "image2": "http://localhost:4000/images/product_1710746238757.png",
+  "category": "Photo & Video Per Day",
+  "new_price": 70000,
+  "old_price": 80000,
+  "available": true,
+  "date": {
+    "$date": "2024-03-18T07:17:18.798Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f7eaba1fd27d72ed5489b0"
+  },
+  "id": 41,
+  "name": "TJ Wedding Films",
+  "place": "Ernakulam",
+  "image": "http://localhost:4000/images/product_1710746298368.png",
+  "image1": "http://localhost:4000/images/product_1710746298373.png",
+  "image2": "http://localhost:4000/images/product_1710746298386.png",
+  "category": "Photo & Video Per Day",
+  "new_price": 50000,
+  "old_price": 55000,
+  "available": true,
+  "date": {
+    "$date": "2024-03-18T07:18:18.471Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f7eaf91fd27d72ed5489b3"
+  },
+  "id": 42,
+  "name": "Wedloop Weddings",
+  "place": "Ernakulam",
+  "image": "http://localhost:4000/images/product_1710746361474.png",
+  "image1": "http://localhost:4000/images/product_1710746361476.png",
+  "image2": "http://localhost:4000/images/product_1710746361478.png",
+  "category": "Photo & Video Per Day",
+  "new_price": 60000,
+  "old_price": 65000,
+  "available": true,
+  "date": {
+    "$date": "2024-03-18T07:19:21.495Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f7eb3e1fd27d72ed5489b6"
+  },
+  "id": 43,
+  "name": "Desire Weddings",
+  "place": "Ernakulam",
+  "image": "http://localhost:4000/images/product_1710746430337.png",
+  "image1": "http://localhost:4000/images/product_1710746430362.png",
+  "image2": "http://localhost:4000/images/product_1710746430363.png",
+  "category": "Photo & Video Per Day",
+  "new_price": 125000,
+  "old_price": 135000,
+  "available": true,
+  "date": {
+    "$date": "2024-03-18T07:20:30.419Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f7eb7d1fd27d72ed5489b9"
+  },
+  "id": 44,
+  "name": "YKNOT Wddings",
+  "place": "Ernakulam",
+  "image": "http://localhost:4000/images/product_1710746493136.png",
+  "image1": "http://localhost:4000/images/product_1710746493138.png",
+  "image2": "http://localhost:4000/images/product_1710746493138.png",
+  "category": "Photo & Video Per Day",
+  "new_price": 90000,
+  "old_price": 100000,
+  "available": true,
+  "date": {
+    "$date": "2024-03-18T07:21:33.158Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f7ebd11fd27d72ed5489bc"
+  },
+  "id": 45,
+  "name": "The Magic Stories",
+  "place": "Ernakulam",
+  "image": "http://localhost:4000/images/product_1710746577041.png",
+  "image1": "http://localhost:4000/images/product_1710746577042.png",
+  "image2": "http://localhost:4000/images/product_1710746577044.png",
+  "category": "Photo & Video Per Day",
+  "new_price": 180000,
+  "old_price": 190000,
+  "available": true,
+  "date": {
+    "$date": "2024-03-18T07:22:57.108Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f7ed4c1fd27d72ed5489c1"
+  },
+  "id": 46,
+  "name": "Hotel Highway Garden",
+  "place": "Ernakulam",
+  "image": "http://localhost:4000/images/product_1710746956461.png",
+  "category": "Hall & Catering Service",
+  "new_price": 0,
+  "veg_price": 150,
+  "non_price": 250,
+  "person_min": 250,
+  "person_max": 500,
+  "available": true,
+  "date": {
+    "$date": "2024-03-18T07:29:16.499Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f7ed9a1fd27d72ed5489c4"
+  },
+  "id": 47,
+  "name": "The Blooms Cochin",
+  "place": "Kakkanad, Ernakulam",
+  "image": "http://localhost:4000/images/product_1710747034671.png",
+  "category": "Hall & Catering Service",
+  "new_price": 0,
+  "veg_price": 750,
+  "non_price": 950,
+  "person_min": 200,
+  "person_max": 250,
+  "available": true,
+  "date": {
+    "$date": "2024-03-18T07:30:34.709Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f7edd21fd27d72ed5489c7"
+  },
+  "id": 48,
+  "name": "Hotel Olive Eva",
+  "place": "Ernakulam",
+  "image": "http://localhost:4000/images/product_1710747090048.png",
+  "category": "Hall & Catering Service",
+  "new_price": 0,
+  "veg_price": 500,
+  "non_price": 600,
+  "person_min": 120,
+  "person_max": 200,
+  "available": true,
+  "date": {
+    "$date": "2024-03-18T07:31:30.086Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f7ee0b1fd27d72ed5489ca"
+  },
+  "id": 49,
+  "name": "Monsoon Empress Hotel",
+  "place": "Ernakulam",
+  "image": "http://localhost:4000/images/product_1710747147647.png",
+  "category": "Hall & Catering Service",
+  "new_price": 0,
+  "veg_price": 950,
+  "non_price": 1250,
+  "person_min": 200,
+  "person_max": 250,
+  "available": true,
+  "date": {
+    "$date": "2024-03-18T07:32:27.685Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f7ee541fd27d72ed5489cf"
+  },
+  "id": 50,
+  "name": "Thejus Auditorium",
+  "place": "Ernakulam",
+  "image": "http://localhost:4000/images/product_1710747220424.png",
+  "category": "Hall & Catering Service",
+  "new_price": 0,
+  "veg_price": 400,
+  "non_price": 500,
+  "person_min": 500,
+  "person_max": 800,
+  "available": true,
+  "date": {
+    "$date": "2024-03-18T07:33:40.444Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f7ee881fd27d72ed5489d2"
+  },
+  "id": 51,
+  "name": "Mermaid Hotels",
+  "place": "Ernakulam",
+  "image": "http://localhost:4000/images/product_1710747272727.png",
+  "category": "Hall & Catering Service",
+  "new_price": 0,
+  "veg_price": 400,
+  "non_price": 500,
+  "person_min": 100,
+  "person_max": 700,
+  "available": true,
+  "date": {
+    "$date": "2024-03-18T07:34:32.816Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f7eebc1fd27d72ed5489d5"
+  },
+  "id": 52,
+  "name": "Abaam Hotel",
+  "place": "Ernakulam",
+  "image": "http://localhost:4000/images/product_1710747324410.png",
+  "category": "Hall & Catering Service",
+  "new_price": 0,
+  "veg_price": 800,
+  "non_price": 1000,
+  "person_min": 200,
+  "person_max": 300,
+  "available": true,
+  "date": {
+    "$date": "2024-03-18T07:35:24.447Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f7eeef1fd27d72ed5489d8"
+  },
+  "id": 53,
+  "name": "Kavitha Event Hub",
+  "place": "Ernakulam",
+  "image": "http://localhost:4000/images/product_1710747375822.png",
+  "category": "Hall & Catering Service",
+  "new_price": 0,
+  "veg_price": 800,
+  "non_price": 1000,
+  "person_min": 500,
+  "person_max": 600,
+  "available": true,
+  "date": {
+    "$date": "2024-03-18T07:36:15.845Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f7ef2f1fd27d72ed5489db"
+  },
+  "id": 54,
+  "name": "Rukmini Kalyana Mandapam",
+  "place": "Ernakulam",
+  "image": "http://localhost:4000/images/product_1710747439018.png",
+  "category": "Hall & Catering Service",
+  "new_price": 0,
+  "veg_price": 350,
+  "non_price": 450,
+  "person_min": 400,
+  "person_max": 600,
+  "available": true,
+  "date": {
+    "$date": "2024-03-18T07:37:19.048Z"
+  },
+  "__v": 0
+}]

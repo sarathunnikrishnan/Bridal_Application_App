@@ -1,0 +1,27 @@
+.hero{
+    height: 600px;
+    text-align: center;
+    background-image: url('../Assets/photo-1597861405049-0b011428568f.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: black;
+}
+
+.hero p{
+    width: 20rem;
+    padding-top: 200px;
+    margin-left: 42rem;
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 1.3rem;
+} 
+
+@media (max-width: 746px) {
+   .hero p{
+    padding-top: 200px;
+    margin-left: 20rem;
+   }
+}

@@ -1,0 +1,27 @@
+.new-collections{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .62rem;
+    height: auto;
+    margin-top: .9rem;
+    padding-left: 5rem;
+}
+.new-collections h1{
+    font-size: 2rem;
+    font-family: "Abril Fatface", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.new-collections hr{
+    width: 12rem;
+    height: .3rem;
+    border-radius: 10px;
+    color: black;
+}
+
+@media (max-width: 746px) {
+    .new-collections{
+        padding-left: 0;
+    }
+}

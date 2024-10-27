@@ -1,0 +1,59 @@
+.bridalcategory-banner{
+    width: 68rem;
+    margin-top: 2rem;
+    background-color: #8391A1;
+}
+.bridal-category{
+    text-align: center;
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 500;
+}
+.bridalcategory-indexSort{
+    display: flex;
+    margin: 1.5rem 1rem ;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: .2rem;
+    font-weight: 700;
+}
+.bridalcategory-sort{
+    padding: .5rem 1rem;
+    border-radius: 10px;
+    border: 1px solid black;
+    font-weight: 700;
+}
+.bridalcategory-indexSort p span{
+    font-weight: 600;
+}
+.bridalcategory-loadmore{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 15rem;
+    height: 2rem;
+    border-radius: 10px;
+    background: #212121;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 2rem 2rem 2rem 27rem;
+    cursor: pointer;
+}
+.bridalcategory-loadmore:hover{
+    background-color: #E7EAE5;
+    color: black;
+    border: 3px solid black;
+}
+@media(max-width: 746px){
+    .bridalcategory-banner{
+        width: 30rem;
+    }
+    .bridalcategory-loadmore{
+        margin-left: 9rem;
+    }
+    .bridalcategory-sort select option{
+        background-color: red;
+    }
+}
+

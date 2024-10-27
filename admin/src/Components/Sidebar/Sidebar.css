@@ -1,0 +1,76 @@
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    gap: .5rem;
+    width: 50%;
+    max-width: 20rem;
+    height: 105vh;
+    background: #212121;
+    color: white;
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+.sidebar-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    gap: 1rem;
+    cursor: pointer;
+    width: 11rem;
+    height: 1.5rem;
+}
+.sidebar-item p{
+    padding-top: 1rem;
+}
+.sidebar-item img{
+    width: 1rem;
+}
+.sidebar-item:hover{
+    background: white;
+    color: black;
+}
+.accordion-body{
+    background: #212121;
+}
+@media(max-width:800px){
+    .sidebar{
+        padding: .4rem 2rem;
+        flex-direction: row;
+        max-width: none;
+        height: auto;
+        display: flex;
+    }
+    .sidebar-item{
+        margin: 0;
+        padding: 0rem .9rem;
+        height: 2rem;
+        width: 15rem;
+    }
+}
+.accordionbtn {
+    display: none;
+}
+.accordion-div{
+    display: flex;
+    width: 19rem;
+}
+@media(max-width:746px) {
+    .accordionbtn {
+        display: block;
+        position: absolute;
+        top: 1.5rem;
+        left: 3rem;
+    }
+    .accordionbtn button{
+        width: 2rem;
+        border: none;
+        padding:  .3rem ;
+        border-radius: 5px;
+    }
+    .sidebar{
+        width: 100%;
+    }
+}

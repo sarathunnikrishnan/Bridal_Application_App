@@ -1,0 +1,193 @@
+.navbar{
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #212121;
+    color: white;
+    padding-top: 1.5rem;
+}
+.navbar:hover{
+    background: white;
+    color: black;
+}
+.nav-logo{
+    text-align: center;
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+.nav-logo-head{
+    font-family: "Abril Fatface", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22px;
+    margin-top: .2rem;
+    padding-top: .2rem;
+}
+.nav-logo-quote{
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    margin-top: -1.5rem;
+}
+.nav-options li, .bridal-options li{
+    list-style: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 .5rem;
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    font-style: normal;
+    cursor: pointer;
+    padding-right: -15px;
+}
+.nav-options li:hover,
+.nav-connect li:hover,
+.bridal-options li:hover,
+.cart-div:hover{
+    background: black;
+    color: white;
+    border-radius: 5px;
+    padding: .2rem;
+}
+.nav-connect{
+    padding-left: 15rem;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.bridal-options input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border: 2px solid #212121;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .bridal-options input[type="text"]:focus {
+    border-color: #212121;
+  }
+  
+  .bridal-options button {
+    padding: 10.8px 20px;
+    border: 2px solid #212121;
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+    background-color: white;
+    color: #212121;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    font-style: normal;
+    position: relative;
+    top : -3px
+  }
+  
+  .bridal-options button:hover {
+    background-color: #212121;
+    color: white;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 746px){
+    .nav-connect{
+        padding-left: 8rem;
+    }
+}
+.nav-connect li{
+    list-style: none;
+    display: inline-flex;
+    padding: 0 .4rem;
+}
+.nav-connect-cart{
+    position: relative;
+    top: -.7rem;
+    left: -.5rem;
+    font-weight: 800;
+    color: black;
+    background: white;
+    padding: .2rem;
+    border-radius: .1rem;
+    height: 1.2rem;
+    align-items: center;
+    font-size: .6rem;
+}
+.cart-div{
+    display: flex;
+    padding-left: .5rem;
+    margin-left: .4rem;
+    height: 1.6rem;
+    width: 2rem;
+    border-radius: 5px;
+}
+.nav-connect ul li p{
+    font-size: .8rem;
+}
+.nav-connect ul li{
+    margin: 0 .1rem;
+    width: auto;
+    height: 1.5rem;
+    padding: .3rem;
+}
