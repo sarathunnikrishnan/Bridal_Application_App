@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./CSS/LoginSignup.css";
 import axios from "axios";
 import { useNavigate} from 'react-router-dom';
+import { API_ENDPOINTS } from '../utils/constants';
 
 const LoginSignup = () => {
   const [state, setState] = useState("Log In");
@@ -26,7 +27,7 @@ const LoginSignup = () => {
     localStorage.setItem('formData', JSON.stringify(formData));
 
     try {
-      const otpResponse = await axios.post('http://localhost:4000/useraccount/userotpsend', formData);
+      const otpResponse = await axios.post(API_ENDPOINTS.SEND_OTP, formData);
     
       if (otpResponse.data === "OTP Send Your Gmail Account") {
         // Assuming `useNavigate` is properly set up
@@ -52,7 +53,7 @@ const LoginSignup = () => {
     // })
     //   .then((response) => response.json())
     //   .then((data) => (responseData = data));
-    await  axios.post('http://localhost:4000/useraccount/login', formData, {
+    await  axios.post(API_ENDPOINTS.LOGIN, formData, {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
@@ -87,7 +88,7 @@ const LoginSignup = () => {
   //   // })
   //   //   .then((response) => response.json())
   //   //   .then((data) => (responseData = data));
-  //   await axios.post('http://localhost:4000/useraccount/signup', formData, {
+  //   await axios.post(API_ENDPOINTS.SIGNUP, formData, {
   //     headers: {
   //       Accept: 'application/json',
   //       'Content-Type': 'application/json'

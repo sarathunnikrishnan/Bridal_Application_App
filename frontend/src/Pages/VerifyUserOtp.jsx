@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 // import './CSS/VerifyUserOtp.css';
 import axios from 'axios';
-
+import { API_ENDPOINTS } from '../utils/constants';
 const VerifyUserOtp = () => {
 
     const [enteredOTP, setEnteredOTP] = useState('');
@@ -16,7 +16,7 @@ const VerifyUserOtp = () => {
   
     const handleVerifyOTP = async () => {
       let responseData;
-      axios.post("http://localhost:4000/useraccount/signup", { formData, otp :  enteredOTP })
+      axios.post(API_ENDPOINTS.SIGNUP, { formData, otp :  enteredOTP })
         .then(response => {
           console.log(response.data)
           responseData = response.data;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Popular.css'
 import Items from '../Items/Items'
 import axios from 'axios'
-
+import { API_ENDPOINTS } from '../../utils/constants'
 const Popular = () => {
 
   const [popularProducts, setPopularProducts] = useState([]);
@@ -14,7 +14,7 @@ const Popular = () => {
 //  },[])
 
    useEffect(()=>{
-       axios.get('http://localhost:4000/product/popularinwomen')
+       axios.get(API_ENDPOINTS.POPULAR_IN_WOMEN)
        .then(response => {
         setPopularProducts(response.data);
       })

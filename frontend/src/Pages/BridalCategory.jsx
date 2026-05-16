@@ -3,7 +3,7 @@ import "./CSS/BridalCategory.css";
 import { Container } from "react-bootstrap";
 import { BridalContext } from "../Context/BridalContext";
 import Items from "../Components/Items/Items";
-
+import Select from "react-select";
 const BridalCategory = (props) => {
   const { all_product } = useContext(BridalContext);
   const [allProduct, setAllProduct] = useState([]);
@@ -12,8 +12,18 @@ const BridalCategory = (props) => {
     setAllProduct(all_product);
   }, [all_product]);
 
-  const selectHandler = (e) => {
-    const { value } = e.target;
+  const sortOptions = [
+    { value: 'sort', label: 'Sort' },
+    { value: 'lowtohigh', label: 'Low to High Price' },
+    { value: 'hightolow', label: 'High to Low Price' },
+    { value: 'lessthan10000', label: 'Less than 10000' },
+    { value: '10000-25000', label: '10000 - 25000' },
+    { value: 'morethan25000', label: 'More than 25000' },
+    { value: 'allproduct', label: 'All Products' },
+  ];
+
+  const selectHandler = (selectedOption) => {
+    const value = selectedOption.value;
     const Product = [...all_product]
     let sortProduct = [];
 
@@ -33,7 +43,7 @@ const BridalCategory = (props) => {
           }
           break;
         case "10000-25000":
-          if (props.category === item.category && item.new_price > 10000 && item.new_price < 25000) {
+          if (props.category === item.category && item.new_price >= 10000 && item.new_price <= 25000) {
             sortProduct.push(item);
           }
           break;
@@ -65,69 +75,36 @@ const BridalCategory = (props) => {
           <p>
             <span>Showing 1-12</span> out of 36 products
           </p>
-          <div className="bridalcategory-sort">
-            <select
-              for="Sort"
-              style={{
-                color: "black",
-                background: "transparent",
-                border: "transparent",
-                "font-size": "15px",
-                width: "60px",
-              }}
+          <div className="bridalcategory-sort" style={{ border: 'none', padding: 0 }}>
+            <Select
+              options={sortOptions}
+              defaultValue={sortOptions[0]}
               onChange={selectHandler}
-            >
-              <option
-                style={customStyle()}
-                name="Sort"
-                value="sort"
-                selected
-              >
-                Sort
-              </option>
-              <option
-                style={{ background: "#8391A1", width: "30px" }}
-                name="Sort"
-                value="lowtohigh" 
-              >
-                Low to High Price
-              </option>
-              <option
-                style={{ background: "#8391A1", width: "30px" }}
-                name="Sort"
-                value="hightolow" 
-              >
-                High to Low Price
-              </option>
-              <option
-                style={{ background: "#8391A1", width: "30px" }}
-                name="Sort"
-                value="lessthan10000" 
-              >
-                less than 10000
-              </option>
-              <option
-                style={{ background: "#8391A1" }}
-                name="Sort"
-                value="10000-25000"
-              >
-                10000-25000
-              </option>
-              <option
-                style={{ background: "#8391A1" }}
-                name="Sort"
-                value="morethan25000"
-              >
-                more than 25000
-              </option>
-              <option
-                style={{ background: "#8391A1" }}
-                name="Sort"
-                value="allproduct"
-              >
-                All Product
-              </option>
-            </select>
+              isSearchable={false}
+              styles={{
+                control: (baseStyles, state) => ({
+                  ...baseStyles,
+                  border: '1px solid black',
+                  borderRadius: '10px',
+                  boxShadow: 'none',
+                  minWidth: '160px',
+                  padding: '0.1rem',
+                  fontWeight: '700',
+                  cursor: 'pointer',
+                  backgroundColor: 'transparent'
+                }),
+                option: (baseStyles, state) => ({
+                  ...baseStyles,
+                  backgroundColor: state.isFocused ? '#E7EAE5' : 'white',
+                  color: 'black',
+                  cursor: 'pointer'
+                }),
+                menu: (baseStyles) => ({
+                  ...baseStyles,
+                  zIndex: 5
+                })
+              }}
+            />
           </div>
         </div>
         <div className="bridalcategory-products">

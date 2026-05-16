@@ -21,20 +21,20 @@ const PaymentReciept = (props) => {
 
   return (
     <div className="body">
-    <div class="container text-center">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-body">
-                        <h1 class="card-title">Thank You for Your Purchase!</h1>
-                        <p class="card-text">Your order has been successfully placed. We appreciate your business and hope you enjoy your new bridal items.</p>
-                        <div class="order-summary my-4">
+    <div className="container text-center">
+        <div className="row justify-content-center">
+            <div className="col-md-8">
+                <div className="card">
+                    <div className="card-body">
+                        <h1 className="card-title">Thank You for Your Purchase!</h1>
+                        <p className="card-text">Your order has been successfully placed. We appreciate your business and hope you enjoy your new bridal items.</p>
+                        <div className="order-summary my-4">
                             <h3>Order Summary</h3>
                             <p>Order Number: <strong>{response.razorpay_order_id}</strong></p>
                             <p>Payment ID: <strong>{response.razorpay_payment_id}</strong></p>
                             <p>Total Amount: <strong>₹{totalAmount}</strong></p>
                         </div>
-                        <button class="btn btn-custom btn-lg" onClick={()=>navigate('/bridal')}>Continue Shopping</button>
+                        <button className="btn btn-custom btn-lg" onClick={()=>navigate('/bridal')}>Continue Shopping</button>
                     </div>
                 </div>
             </div> 

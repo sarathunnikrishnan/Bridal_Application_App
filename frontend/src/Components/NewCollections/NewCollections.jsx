@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './NewCollections.css'
 import Items from '../Items/Items'
 import axios from 'axios'
-
+import { API_ENDPOINTS } from '../../utils/constants'
 const NewCollections = () => {
 
       const [new_collections, setNew_collection] = useState([]);
@@ -14,7 +14,7 @@ const NewCollections = () => {
       // },[]) 
 
       useEffect(()=>{
-        axios.get('http://localhost:4000/product/newcollections')
+        axios.get(API_ENDPOINTS.NEW_COLLECTIONS)
         .then(response => {
           setNew_collection(response.data);
        })

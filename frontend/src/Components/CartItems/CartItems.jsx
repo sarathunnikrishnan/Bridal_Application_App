@@ -5,28 +5,29 @@ import remove_icon from '../Assets/cart_cross_icon.png'
 import { Container } from 'react-bootstrap'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { API_ENDPOINTS, RAZORPAY_CONFIG } from '../../utils/constants'
 const CartItems = () => {
 
     const { all_product, cartItem, removeFromCart, getTotalCartAmount} = useContext(BridalContext);
     const navigate = useNavigate();
 
     const handlePayment = async()=>{
-      const orderUrl = "http://localhost:4000/order/makepayment";
+      const orderUrl = API_ENDPOINTS.MAKE_PAYMENT;
 
       const response = await axios.post(orderUrl, {
         amount : getTotalCartAmount(),
-        currency : 'INR',
-        receipt : 'receipt#1'
+        currency : RAZORPAY_CONFIG.CURRENCY,
+        receipt : RAZORPAY_CONFIG.RECEIPT_PREFIX
       });
 
       const { id } = response.data;
 
       const options = {
-        key : 'rzp_test_o2q5XRREjVhw6K',
+        key : RAZORPAY_CONFIG.KEY_ID,
         amount : getTotalCartAmount() * 100,
-        currency : 'INR',
-        name : 'BLACK & WHITE',
-        description : 'Test Transaction',
+        currency : RAZORPAY_CONFIG.CURRENCY,
+        name : RAZORPAY_CONFIG.NAME,
+        description : RAZORPAY_CONFIG.DESCRIPTION,
         order_id : id,
         handler : function (response) {
           // console.log(response)
@@ -34,9 +35,9 @@ const CartItems = () => {
           // alert(`Payment ID: ${response.razorpay_payment_id }`);
         },
         prefill : {
-          name : "Sarath Unnikrishnan",
-          email : "sarathunnikrishnan18@gmail.com",
-          contact : '9961820377'
+          name : RAZORPAY_CONFIG.PREFILL.NAME,
+          email : RAZORPAY_CONFIG.PREFILL.EMAIL,
+          contact : RAZORPAY_CONFIG.PREFILL.CONTACT
         }
       }
 

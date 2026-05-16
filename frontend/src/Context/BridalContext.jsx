@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
+import { API_ENDPOINTS } from "../utils/constants";
 
 export const BridalContext = createContext(null);
 
@@ -19,7 +20,7 @@ const BridalContextProvider = (props) => {
     // fetch('http://localhost:4000/allproducts')
     // .then((response)=>response.json())
     // .then((data)=>setAll_Product(data))
-    axios.get("http://localhost:4000/product/allproducts").then((response) => {
+    axios.get(API_ENDPOINTS.ALL_PRODUCTS).then((response) => {
       setAll_Product(response.data);
     });
 
@@ -36,7 +37,7 @@ const BridalContextProvider = (props) => {
       // .then((data)=>setCartItems(data));
       axios
         .post(
-          "http://localhost:4000/cart/getcart",
+          API_ENDPOINTS.GET_CART,
           {},
           {
             headers: {
@@ -69,7 +70,7 @@ const BridalContextProvider = (props) => {
     //   })
     //     .then((response) => response.json())
     //     .then((data) => console.log(data));
-    axios.post('http://localhost:4000/cart/addtocart', { itemId: itemId }, {
+    axios.post(API_ENDPOINTS.ADD_TO_CART, { itemId: itemId }, {
         headers: {
           Accept: 'application/json',
           'auth-token': localStorage.getItem('auth-token'),
@@ -99,7 +100,7 @@ const BridalContextProvider = (props) => {
     //   })
     //     .then((response) => response.json())
     //     .then((data) => console.log(data));
-    axios.post('http://localhost:4000/cart/removefromcart', { itemId: itemId }, {
+    axios.post(API_ENDPOINTS.REMOVE_FROM_CART, { itemId: itemId }, {
         headers: {
           Accept: 'application/json',
           'auth-token': localStorage.getItem('auth-token'),
