@@ -59,14 +59,6 @@ const BridalCategory = (props) => {
     setAllProduct(sortProduct);
   };
 
-  function customStyle (){
-    return {
-      background: "#8391A1",
-      width : "300px",
-    };
-  } 
-
-
   return (
     <div className="bridal-category">
       <Container>
