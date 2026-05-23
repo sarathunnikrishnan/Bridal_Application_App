@@ -1,6 +1,6 @@
 .photography-banner{
-    width: 68rem;
-    height: 12rem;
+    width: 80rem;
+    height: 20rem;
     margin-top: 2rem;
     background-color: #8391A1;
 }
@@ -38,7 +38,7 @@
     color: white;
     font-size: 1rem;
     font-weight: 500;
-    margin: 2rem 2rem 2rem 27rem;
+    margin: 2rem auto;
     cursor: pointer;
 }
 .photography-loadmore:hover{
@@ -49,9 +49,6 @@
 @media(max-width: 746px){
     .photography-banner{
         width: 30rem;
-    }
-    .photography-loadmore{
-        margin-left: 9rem;
     }
 }
 

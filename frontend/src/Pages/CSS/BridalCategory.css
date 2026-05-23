@@ -37,7 +37,7 @@
     color: white;
     font-size: 1rem;
     font-weight: 500;
-    margin: 2rem 2rem 2rem 27rem;
+    margin: 2rem auto;
     cursor: pointer;
 }
 .bridalcategory-loadmore:hover{
@@ -48,9 +48,6 @@
 @media(max-width: 746px){
     .bridalcategory-banner{
         width: 30rem;
-    }
-    .bridalcategory-loadmore{
-        margin-left: 9rem;
     }
     .bridalcategory-sort select option{
         background-color: red;
