@@ -10,6 +10,11 @@ const PhotographyProduct = () => {
     const { all_product } = useContext(BridalContext);
     const { photographyitemsId } = useParams();
     const product = all_product.find((e)=>e.id === Number(photographyitemsId))
+    
+    if (!product) {
+      return <div>Loading...</div>
+    }
+
   return (
     <div>
       <BreadcrumsPhoto product={product} />

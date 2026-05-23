@@ -10,6 +10,11 @@ const VenusProduct = () => {
     const { all_product } = useContext(BridalContext);
     const { venusitemsId } = useParams();
     const product = all_product.find((e)=>e.id === Number(venusitemsId))
+
+    if (!product) {
+      return <div>Loading...</div>
+    }
+
   return (
     <div>
       <BreadcrumsVenus product={product}/> 

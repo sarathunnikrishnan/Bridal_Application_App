@@ -53,6 +53,24 @@
 }
 
 @media (max-width: 746px) {
+    .offers {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+        text-align: center;
+        max-width: 100%;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    .offers-left {
+        align-items: center;
+        padding-top: 1rem;
+    }
+    .offers-right {
+        justify-content: center;
+        margin-top: 1rem;
+        padding-bottom: 1rem;
+    }
     .offers-right img{
         width: 12.5rem;
         height: 15rem;
@@ -63,11 +81,6 @@
     }
     .offers-left p{
         font-size: .8rem;
-    }
-    .offers{
-        height: 20rem;
-        padding-left: 1rem;
-        height: 15rem;
     }
  }
  

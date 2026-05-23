@@ -48,10 +48,12 @@
 }
 @media(max-width:746px){
     .itemothers{
-        width: 30rem;
+        width: 100%;
+        max-width: 22rem;
+        box-sizing: border-box;
     }
     .itemothers img{
-        width: 29rem;
-        height: 16rem;
+        width: 100%;
+        height: auto;
     }
 }

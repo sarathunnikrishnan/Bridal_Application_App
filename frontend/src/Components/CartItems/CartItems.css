@@ -118,6 +118,18 @@
     cursor: pointer;
 }
 @media (max-width: 746px){
+    .cartitems {
+        overflow-x: auto;
+    }
+    .cartitems-format-main {
+        min-width: 600px;
+    }
+    .cartitems-down {
+        flex-direction: column;
+    }
+    .cartitems-promocode {
+        padding-top: 2rem;
+    }
     .cartitem-promobox input{
         width: 10rem;
     }

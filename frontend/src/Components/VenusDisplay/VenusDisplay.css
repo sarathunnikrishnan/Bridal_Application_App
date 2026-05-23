@@ -120,13 +120,19 @@
     color: red;
 }
 @media(max-width: 746px){
-    .venusdisplay-right{
-        float: left;
+    .venusdisplay {
+        flex-direction: column;
+    }
+    .venusdisplay-left {
+        height: auto;
     }
     .venusdisplay-left img{
-        width: 32.2rem;
-        height: 18rem;
+        width: 100%;
+        max-width: 32.2rem;
+        height: auto;
         margin-top: 0;
     }
-    
+    .venusdisplay-right{
+        padding: 1rem 0;
+    }
 }

@@ -1,6 +1,7 @@
 .photography-banner{
-    width: 80rem;
-    height: 20rem;
+    width: 100%;
+    max-width: 80rem;
+    height: auto;
     margin-top: 2rem;
     background-color: #8391A1;
 }
@@ -48,7 +49,7 @@
 }
 @media(max-width: 746px){
     .photography-banner{
-        width: 30rem;
+        max-width: 100%;
     }
 }
 

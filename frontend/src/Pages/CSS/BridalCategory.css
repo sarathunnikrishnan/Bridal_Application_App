@@ -1,5 +1,7 @@
 .bridalcategory-banner{
-    width: 68rem;
+    width: 100%;
+    max-width: 68rem;
+    height: auto;
     margin-top: 2rem;
     background-color: #8391A1;
 }
@@ -47,7 +49,7 @@
 }
 @media(max-width: 746px){
     .bridalcategory-banner{
-        width: 30rem;
+        max-width: 100%;
     }
     .bridalcategory-sort select option{
         background-color: red;

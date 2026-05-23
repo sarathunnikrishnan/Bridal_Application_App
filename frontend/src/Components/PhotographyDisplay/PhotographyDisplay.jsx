@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import './PhotographyDisplay.css'
+import '../ProductDisplay/ProductDisplay.css'
 import star_icon from "../Assets/star_icon.png";
 import star_dull_icon from "../Assets/star_dull_icon.png";
 import { Container } from "react-bootstrap";

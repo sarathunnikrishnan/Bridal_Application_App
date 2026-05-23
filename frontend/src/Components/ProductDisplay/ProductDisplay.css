@@ -95,14 +95,25 @@
     font-weight: 700;
 }
 @media(max-width: 746px){
-    .productdisplay-right{
-        float: left;
+    .productdisplay {
+        flex-direction: column;
+    }
+    .productdisplay-left {
+        flex-direction: column-reverse;
+    }
+    .productdisplay-img-list {
+        flex-direction: row;
+        overflow-x: auto;
     }
     .productdisplay-img-list img{
-        height: 7rem;
+        height: 6rem;
     }
     .productdisplay-main-img{
-        width: 26.2rem;
-        height: 31rem;
+        width: 100%;
+        max-width: 26.2rem;
+        height: auto;
+    }
+    .productdisplay-right{
+        padding: 1rem 0;
     }
 }
