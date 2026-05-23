@@ -17,24 +17,13 @@ const BridalContextProvider = (props) => {
   const [cartItem, setCartItems] = useState(getDefaultCart());
 
   useEffect(() => {
-    // fetch('http://localhost:4000/allproducts')
-    // .then((response)=>response.json())
-    // .then((data)=>setAll_Product(data))
+
     axios.get(API_ENDPOINTS.ALL_PRODUCTS).then((response) => {
       setAll_Product(response.data);
     });
 
     if (localStorage.getItem("auth-token")) {
-      // fetch('http://localhost:4000/getcart',{
-      //     method:'POST',
-      //     headers:{
-      //         Accept:'application/form-data',
-      //         'auth-token':`${localStorage.getItem('auth-token')}`,
-      //         'Content-Type' : 'application/json'
-      //     },
-      //     body:"",
-      // }).then((response)=>response.json())
-      // .then((data)=>setCartItems(data));
+
       axios
         .post(
           API_ENDPOINTS.GET_CART,
@@ -59,17 +48,7 @@ const BridalContextProvider = (props) => {
   const addToCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
     if (localStorage.getItem("auth-token")) {
-    //   fetch("http://localhost:4000/addtocart", {
-    //     method: "POST",
-    //     headers: {
-    //       Accept: "application/form-data",
-    //       "auth-token": `${localStorage.getItem("auth-token")}`,
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({ itemId: itemId }),
-    //   })
-    //     .then((response) => response.json())
-    //     .then((data) => console.log(data));
+
     axios.post(API_ENDPOINTS.ADD_TO_CART, { itemId: itemId }, {
         headers: {
           Accept: 'application/json',
@@ -89,17 +68,7 @@ const BridalContextProvider = (props) => {
   const removeFromCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
     if (localStorage.getItem("auth-token")) {
-    //   fetch("http://localhost:4000/removefromcart", {
-    //     method: "POST",
-    //     headers: {
-    //       Accept: "application/form-data",
-    //       "auth-token": `${localStorage.getItem("auth-token")}`,
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({ itemId: itemId }),
-    //   })
-    //     .then((response) => response.json())
-    //     .then((data) => console.log(data));
+
     axios.post(API_ENDPOINTS.REMOVE_FROM_CART, { itemId: itemId }, {
         headers: {
           Accept: 'application/json',

@@ -54,7 +54,7 @@ useraccountrouter.post('/signup',async(req,res,next)=>{
      } 
     }
  
-    const token = jwt.sign(data, 'secret_ecom');
+    const token = jwt.sign(data, process.env.JWT_SECRET);
     res.json({success:true, token}) 
  
  })
@@ -79,7 +79,7 @@ useraccountrouter.post('/signup',async(req,res,next)=>{
                      id: user.id
                  }
              }
-             const token = jwt.sign(data, 'secret_ecom');
+             const token = jwt.sign(data, process.env.JWT_SECRET);
              res.json({success:true,token});
          }else{
              res.json({success:false, error:"Wrong Password"});
@@ -118,7 +118,7 @@ useraccountrouter.post('/userotpsend',(req,res,next)=>{
 
             if (presuer) {
                 const mailOptions = {
-                    from: process.env.EMAIL,
+                    from: process.env.EMAIL_USER,
                     to: email,
                     subject: "Sending Email For OTP Validation",
                     html : `<!DOCTYPE html>

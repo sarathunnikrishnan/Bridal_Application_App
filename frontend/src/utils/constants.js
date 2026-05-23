@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://localhost:4000';
+export const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:4000';
 
 export const API_ENDPOINTS = {
   SIGNUP: `${BASE_URL}/useraccount/signup`,
@@ -14,7 +14,7 @@ export const API_ENDPOINTS = {
 };
 
 export const RAZORPAY_CONFIG = {
-  KEY_ID: 'rzp_test_o2q5XRREjVhw6K',
+  KEY_ID: process.env.REACT_APP_RAZORPAY_KEY_ID || 'rzp_test_o2q5XRREjVhw6K',
   CURRENCY: 'INR',
   NAME: 'BLACK & WHITE',
   DESCRIPTION: 'Test Transaction',

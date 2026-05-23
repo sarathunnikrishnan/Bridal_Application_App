@@ -43,16 +43,7 @@ const LoginSignup = () => {
   const login = async () => {
     console.log("Login Function Executed", formData);
     let responseData;
-    // await fetch("http://localhost:4000/login", {
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "application/form-data",
-    //     "content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(formData),
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => (responseData = data));
+
     await  axios.post(API_ENDPOINTS.LOGIN, formData, {
       headers: {
         Accept: 'application/json',
@@ -74,37 +65,7 @@ const LoginSignup = () => {
     }
   };
 
-  
-  // const signup = async () => {
-  //   console.log("signup Function Executed", formData);
-  //   let responseData;
-  //   // await fetch("http://localhost:4000/signup", {
-  //   //   method: "POST",
-  //   //   headers: {
-  //   //     Accept: "application/form-data",
-  //   //     "content-Type": "application/json",
-  //   //   },
-  //   //   body: JSON.stringify(formData),
-  //   // })
-  //   //   .then((response) => response.json())
-  //   //   .then((data) => (responseData = data));
-  //   await axios.post(API_ENDPOINTS.SIGNUP, formData, {
-  //     headers: {
-  //       Accept: 'application/json',
-  //       'Content-Type': 'application/json'
-  //     }
-  //   }).then(response=>{
-  //     responseData = response.data;
-  //   })
-  
 
-  //   if (responseData.success) {
-  //     localStorage.setItem("auth-token", responseData.token);
-  //     window.location.replace("/");
-  //   } else {
-  //     alert(responseData.errors);
-  //   }
-  // };
 
   return (
     <div className="loginsignup">
