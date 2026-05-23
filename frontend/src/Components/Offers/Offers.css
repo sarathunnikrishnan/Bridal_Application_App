@@ -10,6 +10,9 @@
     border-radius: 10px;
     font-family: "Rajdhani", sans-serif;
     font-weight: 500;
+    width: 100%;
+    max-width: 1040px;
+    box-sizing: border-box;
 }
 .offers-left{
     flex: 1;

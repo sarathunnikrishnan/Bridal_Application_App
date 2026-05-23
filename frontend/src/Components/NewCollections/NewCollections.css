@@ -5,7 +5,6 @@
     gap: .62rem;
     height: auto;
     margin-top: .9rem;
-    padding-left: 5rem;
 }
 .new-collections h1{
     font-size: 2rem;
@@ -19,9 +18,10 @@
     border-radius: 10px;
     color: black;
 }
-
-@media (max-width: 746px) {
-    .new-collections{
-        padding-left: 0;
-    }
+.collections {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1040px;
+    width: 100%;
 }
