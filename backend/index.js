@@ -33,10 +33,12 @@ app.listen(port, (error) => {
   if (!error) {
     console.log(`Server Running On Port ${process.env.PORT}`);
   } else {
-    F;
     console.log("Error : " + error);
   }
 });
+
+// Export the Express API for Vercel Serverless Functions
+module.exports = app;
 
 // Razorpay KEY_ID = rzp_test_o2q5XRREjVhw6K
 // Razorpay KEY_SECRET = av07MHftwsurRww0LkCvomr4
