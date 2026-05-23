@@ -101,7 +101,7 @@ const LoginSignup = () => {
             type={(!showPassword) ? "password" : "text"}
             placeholder="Create Password"
           />
-          <p className="show-password" onClick={showPasswordHandler}>{((!showPassword) ? (<i class="fa-solid fa-eye-slash"></i>) : (<i class="fa-solid fa-eye"></i>))}</p>
+          <p className="show-password" onClick={showPasswordHandler}>{((!showPassword) ? (<i className="fa-solid fa-eye-slash"></i>) : (<i className="fa-solid fa-eye"></i>))}</p>
           {(message.toLocaleLowerCase().includes("password")) ? (<p className="error-message">{message} !!!</p>) : null}
         </div>
         <button

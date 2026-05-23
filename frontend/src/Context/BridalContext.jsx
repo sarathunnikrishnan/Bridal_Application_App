@@ -92,7 +92,9 @@ const BridalContextProvider = (props) => {
         let itemInfo = all_product.find(
           (product) => product.id === Number(item)
         );
-        totalAmount += itemInfo.new_price * cartItem[item];
+        if (itemInfo) {
+          totalAmount += itemInfo.new_price * cartItem[item];
+        }
       }
     }
     return totalAmount;

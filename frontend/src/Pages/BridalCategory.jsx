@@ -24,37 +24,27 @@ const BridalCategory = (props) => {
 
   const selectHandler = (selectedOption) => {
     const value = selectedOption.value;
-    const Product = [...all_product]
+    const Product = [...all_product];
     let sortProduct = [];
 
-    for (let item of all_product) {
-      switch (value) {
-        case "lowtohigh":
-          const sortLowtohigh = Product.sort((a,b) => a.new_price - b.new_price);
-          sortProduct = sortLowtohigh
-          break;
-          case "hightolow":
-            const sorthightolow = Product.sort((a,b) => b.new_price - a.new_price);
-            sortProduct = sorthightolow
-            break;
-        case "lessthan10000":
-          if (props.category === item.category && item.new_price < 10000) {
-            sortProduct.push(item);
-          }
-          break;
-        case "10000-25000":
-          if (props.category === item.category && item.new_price >= 10000 && item.new_price <= 25000) {
-            sortProduct.push(item);
-          }
-          break;
-        case "morethan25000":
-          if (props.category === item.category && item.new_price > 25000) {
-            sortProduct.push(item);
-          }
-          break;
-        default:
-          sortProduct = [...all_product]
-      }
+    switch (value) {
+      case "lowtohigh":
+        sortProduct = Product.sort((a,b) => a.new_price - b.new_price);
+        break;
+      case "hightolow":
+        sortProduct = Product.sort((a,b) => b.new_price - a.new_price);
+        break;
+      case "lessthan10000":
+        sortProduct = Product.filter(item => item.new_price < 10000);
+        break;
+      case "10000-25000":
+        sortProduct = Product.filter(item => item.new_price >= 10000 && item.new_price <= 25000);
+        break;
+      case "morethan25000":
+        sortProduct = Product.filter(item => item.new_price > 25000);
+        break;
+      default:
+        sortProduct = [...all_product];
     }
     setAllProduct(sortProduct);
   };

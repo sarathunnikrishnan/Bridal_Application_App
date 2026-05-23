@@ -1,11 +1,13 @@
 .navbar{
+    display: flex;
+    flex-wrap: wrap;
     height: auto;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
     background: #212121;
     color: white;
-    padding-top: 1.5rem;
+    padding: 1.5rem 2rem 1rem 2rem;
 }
 .navbar:hover{
     background: white;
@@ -31,6 +33,13 @@
     font-style: normal;
     margin-top: -1.5rem;
 }
+.nav-options ul, .bridal-options ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
 .nav-options li, .bridal-options li{
     list-style: none;
     display: inline-flex;
@@ -42,7 +51,6 @@
     font-size: 15px;
     font-style: normal;
     cursor: pointer;
-    padding-right: -15px;
 }
 .nav-options li:hover,
 .nav-connect li:hover,
@@ -54,46 +62,64 @@
     padding: .2rem;
 }
 .nav-connect{
-    padding-left: 15rem;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+}
+.nav-connect ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    flex-wrap: nowrap;
 }
 
 
-.bridal-options input[type="text"] {
+.search-options, .bridal-options {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.search-options input[type="text"] {
     width: 300px;
-    padding: 10px;
+    height: 45px;
+    padding: 0 15px;
     border: 2px solid #212121;
     border-radius: 5px 0 0 5px;
     outline: none;
+    font-size: 1rem;
     transition: border-color 0.3s ease-in-out;
-  }
+}
   
-  .bridal-options input[type="text"]:focus {
+.search-options input[type="text"]:focus {
     border-color: #212121;
-  }
+}
   
-  .bridal-options button {
-    padding: 10.8px 20px;
+.search-options button {
+    height: 45px;
+    padding: 0 20px;
     border: 2px solid #212121;
     border-left: none;
     border-radius: 0 5px 5px 0;
     background-color: white;
     color: #212121;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
     font-family: "Rajdhani", sans-serif;
-    font-weight: 500;
-    font-size: 15px;
-    font-style: normal;
-    position: relative;
-    top : -3px
-  }
+    font-weight: 700;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out;
+}
   
-  .bridal-options button:hover {
+.search-options button:hover {
     background-color: #212121;
     color: white;
-  }
+}
 
 
 
@@ -153,7 +179,8 @@
 
 @media (max-width: 746px){
     .nav-connect{
-        padding-left: 8rem;
+        justify-content: center;
+        margin-top: 1rem;
     }
 }
 .nav-connect li{

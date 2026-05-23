@@ -14,7 +14,7 @@ const Items = (props) => {
   return (
     <div className='item col-12'>
       <Nav.Link as={Link} to={`/bridalproduct/${props.id}`}>
-        <img onClick={window.scrollTo(0,0)} src={props.image} alt="" /></Nav.Link>
+        <img onClick={() => window.scrollTo(0,0)} src={props.image} alt="" /></Nav.Link>
       <p>{props.name}</p>
       
        <div className="item-prices">

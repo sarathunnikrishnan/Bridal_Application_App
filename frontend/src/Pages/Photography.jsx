@@ -26,37 +26,27 @@ const Photography = (props) => {
 
   const selectHandler = (selectedOption) => {
     const value = selectedOption.value;
-    const Product = [...all_product]
+    const Product = [...all_product];
     let sortProduct = [];
 
-    for (let item of all_product) {
-      switch (value) {
-        case "lowtohigh":
-          const sortLowtohigh = Product.sort((a,b) => a.new_price - b.new_price);
-          sortProduct = sortLowtohigh
-          break;
-        case "hightolow":
-          const sorthightolow = Product.sort((a,b) => b.new_price - a.new_price);
-          sortProduct = sorthightolow
-          break;
-        case "lessthan75000":
-          if (item.new_price < 75000) {
-            sortProduct.push(item);
-          }
-          break;
-        case "75000-100000":
-          if (item.new_price >= 75000 && item.new_price <= 100000) {
-            sortProduct.push(item);
-          }
-          break;
-        case "morethan100000":
-          if (item.new_price > 100000) {
-            sortProduct.push(item);
-          }
-          break;
-        default:
-          sortProduct = [...all_product];
-      }
+    switch (value) {
+      case "lowtohigh":
+        sortProduct = Product.sort((a,b) => a.new_price - b.new_price);
+        break;
+      case "hightolow":
+        sortProduct = Product.sort((a,b) => b.new_price - a.new_price);
+        break;
+      case "lessthan75000":
+        sortProduct = Product.filter(item => item.new_price < 75000);
+        break;
+      case "75000-100000":
+        sortProduct = Product.filter(item => item.new_price >= 75000 && item.new_price <= 100000);
+        break;
+      case "morethan100000":
+        sortProduct = Product.filter(item => item.new_price > 100000);
+        break;
+      default:
+        sortProduct = [...all_product];
     }
     setAllProduct(sortProduct);
   };

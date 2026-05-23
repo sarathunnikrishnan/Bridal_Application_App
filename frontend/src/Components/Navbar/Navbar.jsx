@@ -54,7 +54,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <navbar className="navbar">
+      <nav className="navbar">
         <div className="nav-logo col-12 col-md-4">
           <p className="nav-logo-head">BLACK & WHITE</p>
           <p className="nav-logo-quote">
@@ -90,6 +90,19 @@ const Navbar = () => {
         </div>
         <div className="nav-connect col-6 col-md-4">
           <ul>
+            <li onClick={() => toggleVisibility("search")}>
+              <i className="fa-solid fa-magnifying-glass"></i>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://api.whatsapp.com/send/?phone=919961820377&text&type=phone_number&app_absent=0"
+                style={{color: 'inherit', textDecoration: 'none', display: 'flex', alignItems: 'center'}}
+              >
+                <i className="fa-brands fa-whatsapp"></i>
+              </a>
+            </li>
             {localStorage.getItem("auth-token") ? (
               <li
                 onClick={() => {
@@ -97,31 +110,16 @@ const Navbar = () => {
                   window.location.replace("/");
                 }}
               >
-                <p>Log Out</p>
+                <i className="fa-solid fa-right-from-bracket" title="Log Out"></i>
               </li>
             ) : (
-              <li>
-                <Nav.Link as={Link} to="login">
-                  <i class="fa-regular fa-circle-user"></i>
-                </Nav.Link>
+              <li onClick={() => Navigate("/login")}>
+                <i className="fa-regular fa-circle-user"></i>
               </li>
             )}
-            <li>
-              <Nav.Link
-                target="_blank"
-                href="https://api.whatsapp.com/send/?phone=919961820377&text&type=phone_number&app_absent=0"
-              >
-                <i class="fa-brands fa-whatsapp"></i>
-              </Nav.Link>
-            </li>
-            <li onClick={() => toggleVisibility("search")}>
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </li>
           </ul>
-          <div className="cart-div">
-            <Nav.Link as={Link} to="cart">
-            <i class="fa-solid fa-cart-shopping"></i>
-            </Nav.Link>
+          <div className="cart-div" onClick={() => Navigate("/cart")} style={{cursor: 'pointer'}}>
+            <i className="fa-solid fa-cart-shopping"></i>
             <div className="nav-connect-cart">{getTotalCartItems()}</div>
           </div>
         </div>
@@ -147,7 +145,7 @@ const Navbar = () => {
           </div>
         )}
         {isVisibleSearchBar && (
-          <div className="bridal-options">
+          <div className="search-options">
             <input
               type="text"
               placeholder="Search products..."
@@ -157,7 +155,7 @@ const Navbar = () => {
             <button onClick={handleSearchButton}>Search</button> 
           </div>
         )}
-      </navbar>
+      </nav>
     </div>
   );
 };

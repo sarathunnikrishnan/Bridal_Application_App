@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import { API_ENDPOINTS, RAZORPAY_CONFIG } from '../../utils/constants'
 const CartItems = () => {
 
-    const { all_product, cartItem, removeFromCart, getTotalCartAmount} = useContext(BridalContext);
+    const { all_product, cartItem, addToCart, removeFromCart, getTotalCartAmount} = useContext(BridalContext);
     const navigate = useNavigate();
 
     const handlePayment = async()=>{
@@ -69,7 +69,11 @@ const CartItems = () => {
                         <img src={e.image} alt="" className='carticon-product-icon'/>
                         <p>{e.name}</p>
                         <p>₹{e.new_price}</p>
-                        <button className='cartitems-quantity'>{cartItem[e.id]}</button>
+                        <div className='cartitems-quantity-selector'>
+                          <button className='quantity-btn' onClick={()=>{removeFromCart(e.id)}}>-</button>
+                          <span className='cartitems-quantity-text'>{cartItem[e.id]}</span>
+                          <button className='quantity-btn' onClick={()=>{addToCart(e.id)}}>+</button>
+                        </div>
                         <p>₹{e.new_price*cartItem[e.id]}</p>
                         <img className='cartitems-remove-icon' src={remove_icon} onClick={()=>{removeFromCart(e.id)}} alt="" />
                     </div>

@@ -14,9 +14,9 @@ const ItemsOther = (props) => {
   return (
     <div className='itemothers col-12 '>
       <Nav.Link as={Link} to={`/photographyitems/${props.id}`}>
-        <img onClick={window.scrollTo(0,0)} src={props.image} alt="" /></Nav.Link>
+        <img onClick={() => window.scrollTo(0,0)} src={props.image} alt="" /></Nav.Link>
       <p className='itemothers-name'>{props.name}</p>
-      <p><i class="fa-solid fa-map-location-dot m-2"></i>{props.place}</p>
+      <p><i className="fa-solid fa-map-location-dot m-2"></i>{props.place}</p>
       
        <div className="itemothers-prices">
         <p>{props.category}</p>
