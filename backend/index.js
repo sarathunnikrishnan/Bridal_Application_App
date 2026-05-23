@@ -4,6 +4,7 @@ const app = express();
 const db = require("./common/mongoDB");
 require("dotenv").config();
 const cors = require("cors");
+const os = require("os");
 const imagerouter = require("./router/uploadImages");
 const productrouter = require("./router/productrouter");
 const cartrouter = require("./router/cartrouter");
@@ -22,7 +23,7 @@ app.get("/", (req, res) => {
   res.send("Express App is Running");
 });
 
-app.use("/images", express.static("./upload/images"));
+app.use("/images", express.static(os.tmpdir()));
 app.use("/image", imagerouter);
 app.use("/product", productrouter);
 app.use("/cart", cartrouter);
