@@ -1,4 +1,4 @@
-// const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4000;
 const express = require("express");
 const app = express();
 const connectDB = require("./common/mongoDB");
@@ -33,13 +33,15 @@ app.use("/cart", cartrouter);
 app.use("/useraccount", useraccountrouter);
 app.use("/order", makePaymentRouter);
 
-// app.listen(port, (error) => {
-//   if (!error) {
-//     console.log(`Server Running On Port ${process.env.PORT}`);
-//   } else {
-//     console.log("Error : " + error);
-//   }
-// });
+if (require.main === module) {
+  app.listen(port, (error) => {
+    if (!error) {
+      console.log(`Server Running On Port ${port}`);
+    } else {
+      console.log("Error : " + error);
+    }
+  });
+}
 
 // Export the Express API for Vercel Serverless Functions
 module.exports = app;
