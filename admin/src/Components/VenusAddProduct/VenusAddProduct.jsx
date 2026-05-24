@@ -7,8 +7,10 @@ import { useState } from "react";
 const VenusAddProduct = () => {
   const [image, setImage] = useState(false);
   const [preview, setPreview] = useState(upload_area);
+  const [isLoading, setIsLoading] = useState(false);
+  const [showPopup, setShowPopup] = useState({ show: false, message: '', isSuccess: true });
   
-  const [productDetails, setProductDetails] = useState({
+  const initialProductDetails = {
     name : "",
         place : "",
         category : "Hall & Catering Service",
@@ -18,7 +20,9 @@ const VenusAddProduct = () => {
         veg_price : "",
         non_price : "",
         new_price: 0, 
-  });
+  };
+
+  const [productDetails, setProductDetails] = useState(initialProductDetails);
 
   const imageHandler = (e) => {
     const file = e.target.files[0];
@@ -37,38 +41,52 @@ const VenusAddProduct = () => {
   };
 
   const Add_Product = async () => {
-    console.log(productDetails);
-    let responseData;
-    let product = productDetails;
+    setIsLoading(true);
+    try {
+      console.log(productDetails);
+      let responseData;
+      let product = productDetails;
 
-    let formData = new FormData();
-    formData.append("product", image);
+      let formData = new FormData();
+      formData.append("product", image);
 
-    await fetch(API_ENDPOINTS.IMAGE_UPLOAD, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-      },
-      body: formData,
-    })
-      .then((resp) => resp.json())
-      .then((data) => {
-        responseData = data;
-      });
-
-    if (responseData.success) {
-      product.image = responseData.image_url;
-      console.log(product);
-      await fetch(API_ENDPOINTS.ADD_PRODUCT,{
-        method : 'POST',
-        headers:{
-          Accept:'application/json',
-          'content-Type' : 'application/json',
+      await fetch(API_ENDPOINTS.IMAGE_UPLOAD, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
         },
-        body:JSON.stringify(product),
-      }).then((resp)=>resp.json()).then((data)=>{
-        data.success?alert("Product Added"):alert("Failed");
+        body: formData,
       })
+        .then((resp) => resp.json())
+        .then((data) => {
+          responseData = data;
+        });
+
+      if (responseData.success) {
+        product.image = responseData.image_url;
+        console.log(product);
+        await fetch(API_ENDPOINTS.ADD_PRODUCT,{
+          method : 'POST',
+          headers:{
+            Accept:'application/json',
+            'content-Type' : 'application/json',
+          },
+          body:JSON.stringify(product),
+        }).then((resp)=>resp.json()).then((data)=>{
+          if (data.success) {
+            setShowPopup({ show: true, message: "Product has been successfully added to the store.", isSuccess: true });
+            setProductDetails(initialProductDetails);
+            setImage(false);
+            setPreview(upload_area);
+          } else {
+            setShowPopup({ show: true, message: "Failed to add product. Please try again.", isSuccess: false });
+          }
+        })
+      } else {
+        setShowPopup({ show: true, message: "Failed to upload photo. Please try again.", isSuccess: false });
+      }
+    } finally {
+      setIsLoading(false);
     }
   };
   return (
@@ -166,13 +184,29 @@ const VenusAddProduct = () => {
         />
       </div>
       <button
+        disabled={isLoading}
         onClick={() => {
           Add_Product();
         }}
         className="addproduct-btn"
       >
-        ADD
+        {isLoading ? "ADDING..." : "ADD"}
       </button>
+
+      {showPopup.show && (
+        <div className="custom-popup-overlay">
+          <div className="custom-popup">
+            <div className={`popup-icon ${showPopup.isSuccess ? 'success' : 'error'}`}>
+              {showPopup.isSuccess ? '✓' : '✕'}
+            </div>
+            <h4>{showPopup.isSuccess ? 'Success!' : 'Error!'}</h4>
+            <p>{showPopup.message}</p>
+            <button onClick={() => setShowPopup({ show: false, message: '', isSuccess: true })}>
+              OK
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

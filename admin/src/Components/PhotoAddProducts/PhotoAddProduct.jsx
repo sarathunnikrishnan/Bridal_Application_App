@@ -12,8 +12,10 @@ const PhotoAddProduct = () => {
   const [preview, setPreview] = useState(upload_area);
   const [preview1, setPreview1] = useState(upload_area);
   const [preview2, setPreview2] = useState(upload_area);
+  const [isLoading, setIsLoading] = useState(false);
+  const [showPopup, setShowPopup] = useState({ show: false, message: '', isSuccess: true });
 
-  const [productDetails, setProductDetails] = useState({
+  const initialProductDetails = {
         name : "",
         place : '',
         category : "Photo & Video Per Day",
@@ -22,7 +24,9 @@ const PhotoAddProduct = () => {
         image2 : "",
         new_price: "", 
         old_price: "",
-  });
+  };
+
+  const [productDetails, setProductDetails] = useState(initialProductDetails);
 
   const imageHandler = (e) => {
     const file = e.target.files[0];
@@ -63,46 +67,62 @@ const PhotoAddProduct = () => {
   };
 
   const Add_Product = async () => {
-    // console.log(productDetails);
-    let responseData;
-    let product = productDetails;
+    setIsLoading(true);
+    try {
+      // console.log(productDetails);
+      let responseData;
+      let product = productDetails;
 
-    let formData = new FormData();
-    if (image) formData.append("product", image);
-    if (image1) formData.append("product", image1);
-    if (image2) formData.append("product", image2);
+      let formData = new FormData();
+      if (image) formData.append("product", image);
+      if (image1) formData.append("product", image1);
+      if (image2) formData.append("product", image2);
 
-    await fetch(API_ENDPOINTS.IMAGE_PHOTO_UPLOAD, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-      },
-      body: formData,
-    })
-      .then((resp) => resp.json())
-      .then((data) => {
-        responseData = data;
-      });
-
-    if (responseData && responseData.success) {
-      product.image = responseData.imageUrls && responseData.imageUrls[0] ? responseData.imageUrls[0] : "";
-      product.image1 = responseData.imageUrls && responseData.imageUrls[1] ? responseData.imageUrls[1] : "";
-      product.image2 = responseData.imageUrls && responseData.imageUrls[2] ? responseData.imageUrls[2] : "";
-      console.log(product.image+ " " + "image");
-      console.log(product.image1+ " " + "image1");
-      console.log(product.image2+ " " + "image2");
-      await fetch(API_ENDPOINTS.ADD_PRODUCT,{
-        method : 'POST',
-        headers:{
-          Accept:'application/json',
-          'content-Type' : 'application/json',
+      await fetch(API_ENDPOINTS.IMAGE_PHOTO_UPLOAD, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
         },
-        body:JSON.stringify(product),
-      }).then((resp)=>resp.json()).then((data)=>{
-        data.success?alert("Product Added"):alert("Failed");
+        body: formData,
       })
-    } else {
-        alert("Photo upload failed");
+        .then((resp) => resp.json())
+        .then((data) => {
+          responseData = data;
+        });
+
+      if (responseData && responseData.success) {
+        product.image = responseData.imageUrls && responseData.imageUrls[0] ? responseData.imageUrls[0] : "";
+        product.image1 = responseData.imageUrls && responseData.imageUrls[1] ? responseData.imageUrls[1] : "";
+        product.image2 = responseData.imageUrls && responseData.imageUrls[2] ? responseData.imageUrls[2] : "";
+        console.log(product.image+ " " + "image");
+        console.log(product.image1+ " " + "image1");
+        console.log(product.image2+ " " + "image2");
+        await fetch(API_ENDPOINTS.ADD_PRODUCT,{
+          method : 'POST',
+          headers:{
+            Accept:'application/json',
+            'content-Type' : 'application/json',
+          },
+          body:JSON.stringify(product),
+        }).then((resp)=>resp.json()).then((data)=>{
+          if(data.success){
+            setShowPopup({ show: true, message: "Product has been successfully added to the store.", isSuccess: true });
+            setProductDetails(initialProductDetails);
+            setImage(false);
+            setImage1(false);
+            setImage2(false);
+            setPreview(upload_area);
+            setPreview1(upload_area);
+            setPreview2(upload_area);
+          } else {
+            setShowPopup({ show: true, message: "Failed to add product. Please try again.", isSuccess: false });
+          }
+        })
+      } else {
+          setShowPopup({ show: true, message: "Failed to upload photos. Please try again.", isSuccess: false });
+      }
+    } finally {
+      setIsLoading(false);
     }
   };
   return (
@@ -207,13 +227,29 @@ const PhotoAddProduct = () => {
         />
       </div>
       <button
+        disabled={isLoading}
         onClick={() => {
           Add_Product();
         }}
         className="addproduct-btn"
       >
-        ADD
+        {isLoading ? "ADDING..." : "ADD"}
       </button>
+
+      {showPopup.show && (
+        <div className="custom-popup-overlay">
+          <div className="custom-popup">
+            <div className={`popup-icon ${showPopup.isSuccess ? 'success' : 'error'}`}>
+              {showPopup.isSuccess ? '✓' : '✕'}
+            </div>
+            <h4>{showPopup.isSuccess ? 'Success!' : 'Error!'}</h4>
+            <p>{showPopup.message}</p>
+            <button onClick={() => setShowPopup({ show: false, message: '', isSuccess: true })}>
+              OK
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
