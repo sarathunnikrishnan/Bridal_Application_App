@@ -41,7 +41,6 @@ const ListProduct = () => {
         <p>Remove</p>
       </div>
       <div className="listproduct-allproducts">
-        <hr />
         {
   allproducts.map((product, index) => {
     if (product.category === 'women' || product.category === 'men' || product.category === 'kid'){
@@ -55,7 +54,6 @@ const ListProduct = () => {
             <p>{product.category}</p>
             <img onClick={() => { remove_product(product.id) }} className='listproduct-remove-icon' src={cross_icon} alt="" />
           </div>
-          <hr />
         </React.Fragment>
       )
     } else {

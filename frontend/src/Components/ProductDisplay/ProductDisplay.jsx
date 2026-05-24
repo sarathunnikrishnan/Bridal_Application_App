@@ -12,6 +12,11 @@ const ProductDisplay = (props) => {
   const { addToCart } = useContext(BridalContext);
   const [ user , setUser] = useState(false);
   const navigate = useNavigate();
+  const [selectedImage, setSelectedImage] = useState(product?.image);
+
+  useEffect(() => {
+    setSelectedImage(product?.image);
+  }, [product]);
 
   useEffect(()=>{
         console.log(localStorage.getItem('auth-token'),"+++++++")
@@ -30,13 +35,13 @@ const ProductDisplay = (props) => {
         <Container>
       <div className="productdisplay-left ">
         <div className="productdisplay-img-list">
-          <img src={product.image} alt="" />
-          <img src={product.image} alt="" />
-          <img src={product.image} alt="" />
-          <img src={product.image} alt="" />
+          <img src={product.image} alt="" onClick={() => setSelectedImage(product.image)} />
+          <img src={product.image1 || product.image} alt="" onClick={() => setSelectedImage(product.image1 || product.image)} />
+          <img src={product.image2 || product.image} alt="" onClick={() => setSelectedImage(product.image2 || product.image)} />
+          <img src={product.image3 || product.image} alt="" onClick={() => setSelectedImage(product.image3 || product.image)} />
         </div>
         <div className="productdisplay-img">
-          <img src={product.image} alt="" className="productdisplay-main-img" />
+          <img src={selectedImage || product.image} alt="" className="productdisplay-main-img" />
         </div>
       </div>
       <div className="productdisplay-right ">

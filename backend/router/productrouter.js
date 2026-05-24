@@ -20,6 +20,7 @@ productrouter.post('/addproduct', async(req, res)=>{
             image:req.body.image,
             image1:req.body.image1,
             image2:req.body.image2,
+            image3:req.body.image3,
             category:req.body.category,
             new_price:req.body.new_price,
             old_price:req.body.old_price,

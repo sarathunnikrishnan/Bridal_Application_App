@@ -22,6 +22,9 @@ const Product = mongoose.model("Product",{
     image2:{
         type:String,
     },
+    image3:{
+        type:String,
+    },
     category:{
         type:String,
     },

@@ -18,7 +18,7 @@ imagerouter.post("/upload", uploadImage.single('product'),(req,res)=>{
     }
 })
 // Creating Upload Photography Images
-imagerouter.post("/photoupload", uploadImage.array('product', 3),(req,res)=>{
+imagerouter.post("/photoupload", uploadImage.array('product', 4),(req,res)=>{
     try {
         let imageUrls = [];
         req.files.forEach((file, index) => {

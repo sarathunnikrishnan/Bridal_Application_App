@@ -39,7 +39,6 @@ const PhotoListProduct = () => {
         <p>Remove</p>
       </div>
       <div className="listproduct-allproducts">
-        <hr />
         {allproducts.map((product, index) => {
           if (
             product.category === "Photo & Video Per Day"
@@ -65,7 +64,6 @@ const PhotoListProduct = () => {
                     alt=""
                   />
                 </div>
-                <hr />
               </React.Fragment>
             );
           } else {

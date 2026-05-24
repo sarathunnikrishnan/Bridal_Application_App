@@ -1,66 +1,95 @@
 .list-product{
     font-family: "Rajdhani", sans-serif;
-    font-weight: 500;
     font-style: normal;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 62rem;
-    height: 78vh;
-    padding: 1rem;
-    margin: 1rem;
-    border-radius: 6px;
+    width: 100%;
+    max-width: 75rem;
+    height: 85vh;
+    padding: 2rem;
+    margin: 2rem auto;
+    border-radius: 12px;
     background: #212121;
     color: white;
+    box-sizing: border-box;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+}
+.list-product h1 {
+    margin-bottom: 1.5rem;
+    font-weight: 600;
 }
 .listproduct-format-main{
     display: grid;
     grid-template-columns: 1fr 3fr 1fr 1fr 1fr 1fr;
     gap: 1rem;
     width: 100%;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
+    align-items: center;
+    text-align: center;
+    padding: 1rem 0;
 }
 .listproduct-format{
-    align-items: center;
     font-weight: 500;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: background 0.2s ease;
+}
+.listproduct-format:hover {
+    background: rgba(255,255,255,0.05);
 }
 .listproduct-product-icon{
-    height: 2rem;
+    height: 4.5rem;
+    width: 4.5rem;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 0 auto;
 }
 .listproduct-remove-icon{
     cursor: pointer;
     margin: auto;
+    width: 1.5rem;
+    transition: transform 0.2s ease;
+}
+.listproduct-remove-icon:hover {
+    transform: scale(1.2);
 }
 .listproduct-allproducts{
     overflow-y: auto;
+    width: 100%;
+    padding-right: 10px;
 }
 .listproduct-allproducts::-webkit-scrollbar {
-    display: none;
+    width: 6px;
+}
+.listproduct-allproducts::-webkit-scrollbar-track {
+    background: #333;
+    border-radius: 10px;
+}
+.listproduct-allproducts::-webkit-scrollbar-thumb {
+    background: #666;
+    border-radius: 10px;
 }
 .listproduct-format-venus{
-    width: 60rem;
+    width: 100%;
 }
 .listproduct-remove-icon-venus{
-    margin-left: 1rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 @media(max-width:800px){
     .list-product{
-        box-sizing: border-box;
-        width: 38rem;
+        width: 100%;
         height: 100%;
-        padding: 1rem 1rem;
-        margin: 1rem -3rem;
-        font-size: .5rem;
+        padding: 1rem;
+        margin: 1rem;
     }
     .listproduct-format-main{
-        padding: 1rem 0;
-        font-size: .8rem;
+        font-size: 0.85rem;
+        gap: 0.5rem;
     }
     .listproduct-product-icon{
-        height: 2rem;
-    }
-    .listproduct-format-venus{
-        width: 36rem;
+        height: 3rem;
+        width: 3rem;
     }
 }

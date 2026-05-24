@@ -39,7 +39,6 @@ const VenusListProduct = () => {
         <p>Remove</p>
       </div>
       <div className="listproduct-allproducts">
-        <hr />
         {
   allproducts.map((product, index) => {
     if (product.category === "Hall & Catering Service"){
@@ -53,7 +52,6 @@ const VenusListProduct = () => {
             <p>{product.person_min} - {product.person_max}</p>
             <img onClick={() => { remove_product(product.id) }} className='listproduct-remove-icon listproduct-remove-icon-venus' src={cross_icon} alt="" />
           </div>
-          <hr />
         </React.Fragment>
       )
     } else {
