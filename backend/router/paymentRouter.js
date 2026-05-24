@@ -11,7 +11,6 @@ const razorpay = new Razorpay({
 
 router.post("/makepayment", async(req,res)=>{
     const { amount, currency, receipt} = req.body;
-   console.log(req.body)
     try{
 
         const payment = await razorpay.orders.create({
@@ -20,7 +19,6 @@ router.post("/makepayment", async(req,res)=>{
             receipt
         })
  
-        console.log(payment)
         return res.json(payment)
     }catch(error){
         console.error("Error in /makepayment:", error);

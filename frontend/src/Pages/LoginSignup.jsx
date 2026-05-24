@@ -41,7 +41,6 @@ const LoginSignup = () => {
 };  
 
   const login = async () => {
-    console.log("Login Function Executed", formData);
     let responseData;
 
     await  axios.post(API_ENDPOINTS.LOGIN, formData, {

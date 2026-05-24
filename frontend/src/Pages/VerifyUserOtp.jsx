@@ -18,7 +18,6 @@ const VerifyUserOtp = () => {
       let responseData;
       axios.post(API_ENDPOINTS.SIGNUP, { formData, otp :  enteredOTP })
         .then(response => {
-          console.log(response.data)
           responseData = response.data;
   
           if (responseData.success) {

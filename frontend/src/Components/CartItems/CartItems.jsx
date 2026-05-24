@@ -30,9 +30,7 @@ const CartItems = () => {
         description : RAZORPAY_CONFIG.DESCRIPTION,
         order_id : id,
         handler : function (response) {
-          // console.log(response)
           navigate("/payment", {state :{ response : response, totalAmount : getTotalCartAmount()}});
-          // alert(`Payment ID: ${response.razorpay_payment_id }`);
         },
         prefill : {
           name : RAZORPAY_CONFIG.PREFILL.NAME,

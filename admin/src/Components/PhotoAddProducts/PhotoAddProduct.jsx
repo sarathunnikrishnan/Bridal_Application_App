@@ -94,9 +94,6 @@ const PhotoAddProduct = () => {
         product.image = responseData.imageUrls && responseData.imageUrls[0] ? responseData.imageUrls[0] : "";
         product.image1 = responseData.imageUrls && responseData.imageUrls[1] ? responseData.imageUrls[1] : "";
         product.image2 = responseData.imageUrls && responseData.imageUrls[2] ? responseData.imageUrls[2] : "";
-        console.log(product.image+ " " + "image");
-        console.log(product.image1+ " " + "image1");
-        console.log(product.image2+ " " + "image2");
         await fetch(API_ENDPOINTS.ADD_PRODUCT,{
           method : 'POST',
           headers:{

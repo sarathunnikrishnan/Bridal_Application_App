@@ -116,8 +116,7 @@ useraccountrouter.post('/userotpsend',(req,res,next)=>{
 
 }, async(req,res)=>{
 
-    const { email, username } = req.body; 
-    console.log(email)
+    const { email, username } = req.body;
 
     try {
         const existEmail = await userotp.findOne({ email: email });

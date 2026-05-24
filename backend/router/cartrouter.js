@@ -23,7 +23,6 @@ const fetchUser = async(req,res,next)=>{
 // Creating Endpoint for adding product in cartData
 cartrouter.post('/addtocart', fetchUser ,async(req,res)=>{
     try {
-        console.log("Added", req.body.itemId);
         let userData = await Users.findOne({_id:req.user.id})
         userData.cartData[req.body.itemId] += 1;
         await Users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData})
@@ -37,7 +36,6 @@ cartrouter.post('/addtocart', fetchUser ,async(req,res)=>{
 // creating endpoint to remove product from cartdata
 cartrouter.post('/removefromcart', fetchUser, async(req,res)=>{
     try {
-        console.log("removed", req.body.itemId);
         let userData = await Users.findOne({_id:req.user.id})
         if(userData.cartData[req.body.itemId]>0){
             userData.cartData[req.body.itemId] -= 1;

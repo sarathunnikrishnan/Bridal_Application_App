@@ -17,8 +17,6 @@ const PaymentReciept = (props) => {
     })
  },[cartItem,all_product,removeFromCart])
 
-//  console.log(user.user, purchaseHistory, "PurchadeHistory")
-
   return (
     <div className="body">
     <div className="container text-center">

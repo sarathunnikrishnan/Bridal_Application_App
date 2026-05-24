@@ -43,7 +43,6 @@ const VenusAddProduct = () => {
   const Add_Product = async () => {
     setIsLoading(true);
     try {
-      console.log(productDetails);
       let responseData;
       let product = productDetails;
 
@@ -64,7 +63,6 @@ const VenusAddProduct = () => {
 
       if (responseData.success) {
         product.image = responseData.image_url;
-        console.log(product);
         await fetch(API_ENDPOINTS.ADD_PRODUCT,{
           method : 'POST',
           headers:{

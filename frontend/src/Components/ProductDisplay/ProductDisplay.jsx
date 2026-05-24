@@ -19,7 +19,6 @@ const ProductDisplay = (props) => {
   }, [product]);
 
   useEffect(()=>{
-        console.log(localStorage.getItem('auth-token'),"+++++++")
          if(localStorage.getItem('auth-token')){
              setUser(true);
          }else{
@@ -27,8 +26,6 @@ const ProductDisplay = (props) => {
          }
   
   },[user, setUser])
-
-  // console.log(user)
 
   return (
     <div className="productdisplay">

@@ -10,7 +10,6 @@ import { Container } from 'react-bootstrap';
 const SearchProducts = () => {
     const location = useLocation();
     const {Product, searchInput} = location.state || {};
-    // console.log(Product)
   return ( 
     <Container>
         <div className='search-result'>

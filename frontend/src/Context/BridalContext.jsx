@@ -56,9 +56,6 @@ const BridalContextProvider = (props) => {
           'Content-Type': 'application/json'
         }
       })
-      .then(response => {
-        console.log(response.data);
-      })
       .catch(error => {
         console.error('Error adding item to cart:', error);
       });
@@ -75,9 +72,6 @@ const BridalContextProvider = (props) => {
           'auth-token': localStorage.getItem('auth-token'),
           'Content-Type': 'application/json'
         }
-      })
-      .then(response => {
-        console.log(response.data);
       })
       .catch(error => {
         console.error('Error adding item to cart:', error);
@@ -118,8 +112,6 @@ const BridalContextProvider = (props) => {
     getTotalCartAmount,
     getTotalCartItems,
   };
-
-  console.log("Props.Children", props.children)
 
   return (
     <BridalContext.Provider value={contextValue}>

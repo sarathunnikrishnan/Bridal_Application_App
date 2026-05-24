@@ -86,7 +86,6 @@ const AddProduct = () => {
   const Add_Product = async () => {
     setIsLoading(true);
     try {
-      console.log(productDetails);
       let responseData;
       let product = productDetails;
 
@@ -113,7 +112,6 @@ const AddProduct = () => {
         product.image1 = responseData.imageUrls && responseData.imageUrls[1] ? responseData.imageUrls[1] : "";
         product.image2 = responseData.imageUrls && responseData.imageUrls[2] ? responseData.imageUrls[2] : "";
         product.image3 = responseData.imageUrls && responseData.imageUrls[3] ? responseData.imageUrls[3] : "";
-        console.log(product);
         await fetch(API_ENDPOINTS.ADD_PRODUCT,{
           method : 'POST',
           headers:{
