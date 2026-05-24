@@ -10,7 +10,7 @@ imagerouter.post("/upload", uploadImage.single('product'),(req,res)=>{
     try {
         res.json({
            success : 1,
-           image_url : `/images/${req.file.filename}`
+           image_url : req.file.path
         })
     } catch (error) {
         console.error("Error in /upload:", error);
@@ -22,7 +22,7 @@ imagerouter.post("/photoupload", uploadImage.array('product', 3),(req,res)=>{
     try {
         let imageUrls = [];
         req.files.forEach((file, index) => {
-            imageUrls.push(`/images/${file.filename}`);
+            imageUrls.push(file.path);
         });
         res.json({
            success : 1,

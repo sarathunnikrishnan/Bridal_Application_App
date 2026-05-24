@@ -1,35 +1,25 @@
-
 const multer = require('multer')
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const cloudinary = require('cloudinary').v2;
 const path = require('path')
-const os = require('os')
 
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUD_API_KEY,
+  api_secret: process.env.CLOUD_API_SECRET
+});
 
-// Image Storage Engine
-const storage = multer.diskStorage({
-    destination: os.tmpdir(),   
-    filename:(req,file,cb)=>{
-        return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
-    }
-})
+// Configure Cloudinary Storage
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'bridal_app_images', // folder name in your Cloudinary account
+    allowedFormats: ['jpeg', 'png', 'jpg', 'svg', 'webp'],
+    public_id: (req, file) => `${file.fieldname}_${Date.now()}`
+  }
+});
 
 const uploadImage = multer({storage: storage});
 
 module.exports = uploadImage;
-
-// const multer = require('multer');
-// const path = require('path');
-
-// const storage = multer.diskStorage({
-//     destination: function (req, file, cb) {
-//         cb(null, path.join(__dirname, '../upload/images'));
-//     },
-//     filename: function (req, file, cb) {
-//         const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-//         cb(null, uniqueSuffix + '-' + file.originalname);
-//     }
-// });
-
-// const upload = multer({ storage: storage }); 
-
-// module.exports = upload; 
-

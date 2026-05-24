@@ -23,8 +23,13 @@ app.use((req, res, next) => {
 
 // Middleware to ensure DB connection
 app.use(async (req, res, next) => {
-  await connectDB();
-  next();
+  try {
+    await connectDB();
+    next();
+  } catch (error) {
+    console.error("Database connection blocked request:", error.message);
+    res.status(500).json({ success: false, message: "Database Connection Failed", error: error.message });
+  }
 });
 
 // Initialize connection eagerly for faster startup and local development
@@ -35,7 +40,7 @@ app.get("/", (req, res) => {
   res.send("Express App is Running");
 });
 
-app.use("/images", express.static(os.tmpdir()));
+// app.use("/images", express.static(os.tmpdir()));
 app.use("/image", imagerouter);
 app.use("/product", productrouter);
 app.use("/cart", cartrouter);
