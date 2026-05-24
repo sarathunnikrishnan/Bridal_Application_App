@@ -1,9 +1,17 @@
-import React from 'react'
-import photoRelated from '../Assets/Photography/photoRelated'
+import React, { useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap'
 import ItemsOther from '../ItemsOther/ItemsOther'
 
 const PhotoRelated = () => {
+  const [relatedProducts, setRelatedProducts] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:4000/product/relatedproducts?category=photo')
+      .then((res) => res.json())
+      .then((data) => setRelatedProducts(data))
+      .catch((err) => console.error(err));
+  }, []);
+
   return (
     <div className='relativeproducts'>
         <Container>
@@ -11,7 +19,7 @@ const PhotoRelated = () => {
        <hr/>
        <div className="relatedproduct-items">
            {
-            photoRelated.map((item, index)=>{
+            relatedProducts.map((item, index)=>{
                 return ((<ItemsOther key={index} id={item.id} name={item.name} place={item.place} image={item.image} new_price={item.new_price} old_price={item.old_price} category={item.category}/>))
             })
            }

@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap'
 import ItemVenus from '../ItemsVenus/ItemVenus'
-import VenusRelated from '../Assets/Venue/VenusRelated'
 
 const VenusRelatedProduct = () => {
+  const [relatedProducts, setRelatedProducts] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:4000/product/relatedproducts?category=venus')
+      .then((res) => res.json())
+      .then((data) => setRelatedProducts(data))
+      .catch((err) => console.error(err));
+  }, []);
+
   return (
     <div className='relativeproducts'>
         <Container>
@@ -11,7 +19,7 @@ const VenusRelatedProduct = () => {
        <hr/>
        <div className="relatedproduct-items">
            {
-            VenusRelated.map((item, index)=>{
+            relatedProducts.map((item, index)=>{
                 return ((<ItemVenus key={index} 
                     id={item.id} 
                     name={item.name} 
