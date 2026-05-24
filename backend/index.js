@@ -1,7 +1,7 @@
 // const port = process.env.PORT || 4000;
 const express = require("express");
 const app = express();
-const db = require("./common/mongoDB");
+const connectDB = require("./common/mongoDB");
 require("dotenv").config();
 const cors = require("cors");
 const os = require("os");
@@ -11,12 +11,15 @@ const cartrouter = require("./router/cartrouter");
 const makePaymentRouter = require("./router/paymentRouter");
 const useraccountrouter = require("./router/userAccount");
 const Users = require("./model/UserModel");
-// const { default: mongoose } = require('mongoose');
-// const { error } = require('console');
-// const { allowedNodeEnvironmentFlags } = require('process');
 
 app.use(express.json());
 app.use(cors());
+
+// Middleware to ensure DB connection
+app.use(async (req, res, next) => {
+  await connectDB();
+  next();
+});
 
 // API Creation
 app.get("/", (req, res) => {
