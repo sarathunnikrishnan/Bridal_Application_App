@@ -1,10 +1,13 @@
 // import React from 'react'
 import "../AddProduct/AddProduct.css";
+import { API_ENDPOINTS } from "../../Const/constants";
 import upload_area from "../../assets/upload_area.svg";
 import { useState } from "react";
 
 const VenusAddProduct = () => {
   const [image, setImage] = useState(false);
+  const [preview, setPreview] = useState(upload_area);
+  
   const [productDetails, setProductDetails] = useState({
     name : "",
         place : "",
@@ -18,7 +21,15 @@ const VenusAddProduct = () => {
   });
 
   const imageHandler = (e) => {
-    setImage(e.target.files[0]);
+    const file = e.target.files[0];
+    setImage(file);
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => setPreview(reader.result);
+      reader.readAsDataURL(file);
+    } else {
+      setPreview(upload_area);
+    }
   };
 
   const changeHandler = (e) => {
@@ -33,7 +44,7 @@ const VenusAddProduct = () => {
     let formData = new FormData();
     formData.append("product", image);
 
-    await fetch("http://localhost:4000/image/upload", {
+    await fetch(API_ENDPOINTS.IMAGE_UPLOAD, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -48,7 +59,7 @@ const VenusAddProduct = () => {
     if (responseData.success) {
       product.image = responseData.image_url;
       console.log(product);
-      await fetch('http://localhost:4000/product/addproduct',{
+      await fetch(API_ENDPOINTS.ADD_PRODUCT,{
         method : 'POST',
         headers:{
           Accept:'application/json',
@@ -141,7 +152,7 @@ const VenusAddProduct = () => {
       <div className="addproduct-itemfield">
         <label htmlFor="file-input">
           <img
-            src={image ? URL.createObjectURL(image) : upload_area}
+            src={preview}
             className="addproduct-thumnail-image"
             alt=""
           />

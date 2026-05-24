@@ -1,5 +1,6 @@
 // import React from 'react'
 import './PhotoAddProduct.css'
+import { API_ENDPOINTS } from "../../Const/constants"
 import upload_area from "../../assets/upload_area.svg";
 import { useState } from "react";
 
@@ -7,6 +8,11 @@ const PhotoAddProduct = () => {
   const [image, setImage] = useState(false);
   const [image1, setImage1] = useState(false);
   const [image2, setImage2] = useState(false);
+
+  const [preview, setPreview] = useState(upload_area);
+  const [preview1, setPreview1] = useState(upload_area);
+  const [preview2, setPreview2] = useState(upload_area);
+
   const [productDetails, setProductDetails] = useState({
         name : "",
         place : '',
@@ -19,13 +25,37 @@ const PhotoAddProduct = () => {
   });
 
   const imageHandler = (e) => {
-    setImage(e.target.files[0]);
+    const file = e.target.files[0];
+    setImage(file);
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => setPreview(reader.result);
+      reader.readAsDataURL(file);
+    } else {
+      setPreview(upload_area);
+    }
   };
   const imageHandler1 = (e) => {
-    setImage1(e.target.files[0]);
+    const file = e.target.files[0];
+    setImage1(file);
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => setPreview1(reader.result);
+      reader.readAsDataURL(file);
+    } else {
+      setPreview1(upload_area);
+    }
   };
   const imageHandler2 = (e) => {
-    setImage2(e.target.files[0]);
+    const file = e.target.files[0];
+    setImage2(file);
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => setPreview2(reader.result);
+      reader.readAsDataURL(file);
+    } else {
+      setPreview2(upload_area);
+    }
   };
 
   const changeHandler = (e) => {
@@ -38,11 +68,11 @@ const PhotoAddProduct = () => {
     let product = productDetails;
 
     let formData = new FormData();
-    formData.append("product", image);
-    formData.append("product", image1);
-    formData.append("product", image2);
+    if (image) formData.append("product", image);
+    if (image1) formData.append("product", image1);
+    if (image2) formData.append("product", image2);
 
-    await fetch("http://localhost:4000/image/photoupload", {
+    await fetch(API_ENDPOINTS.IMAGE_PHOTO_UPLOAD, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -54,14 +84,14 @@ const PhotoAddProduct = () => {
         responseData = data;
       });
 
-    if (responseData.success) {
-      product.image = responseData.imageUrls[0];
-      product.image1 = responseData.imageUrls[1];
-      product.image2 = responseData.imageUrls[2];
+    if (responseData && responseData.success) {
+      product.image = responseData.imageUrls && responseData.imageUrls[0] ? responseData.imageUrls[0] : "";
+      product.image1 = responseData.imageUrls && responseData.imageUrls[1] ? responseData.imageUrls[1] : "";
+      product.image2 = responseData.imageUrls && responseData.imageUrls[2] ? responseData.imageUrls[2] : "";
       console.log(product.image+ " " + "image");
       console.log(product.image1+ " " + "image1");
       console.log(product.image2+ " " + "image2");
-      await fetch('http://localhost:4000/product/addproduct',{
+      await fetch(API_ENDPOINTS.ADD_PRODUCT,{
         method : 'POST',
         headers:{
           Accept:'application/json',
@@ -71,6 +101,8 @@ const PhotoAddProduct = () => {
       }).then((resp)=>resp.json()).then((data)=>{
         data.success?alert("Product Added"):alert("Failed");
       })
+    } else {
+        alert("Photo upload failed");
     }
   };
   return (
@@ -133,7 +165,7 @@ const PhotoAddProduct = () => {
       <div className="addproduct-itemfield">
         <label htmlFor="file-input">
           <img
-            src={image ? URL.createObjectURL(image) : upload_area}
+            src={preview}
             className="addproduct-thumnail-image"
             alt=""
           />
@@ -147,7 +179,7 @@ const PhotoAddProduct = () => {
         />
          <label htmlFor="file-input-1">
           <img
-            src={image1 ? URL.createObjectURL(image1) : upload_area}
+            src={preview1}
             className="addproduct-thumnail-image"
             alt=""
           />
@@ -161,7 +193,7 @@ const PhotoAddProduct = () => {
         />
          <label htmlFor="file-input-2">
           <img
-            src={image2 ? URL.createObjectURL(image2) : upload_area}
+            src={preview2}
             className="addproduct-thumnail-image"
             alt=""
           />
