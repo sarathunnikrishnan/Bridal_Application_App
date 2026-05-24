@@ -21,6 +21,9 @@ app.use(async (req, res, next) => {
   next();
 });
 
+// Initialize connection eagerly for faster startup and local development
+connectDB();
+
 // API Creation
 app.get("/", (req, res) => {
   res.send("Express App is Running");
