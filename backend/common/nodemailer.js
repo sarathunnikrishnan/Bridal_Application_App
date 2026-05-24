@@ -20,9 +20,10 @@ function triggerMail (mailOptions, callback){
                callback(null, info)
            }
        })
-      }catch{
-       callback(err);
-      }
+       } catch (err) {
+           console.error("Error in triggerMail:", err);
+           callback(err);
+       }
 }
 
 module.exports = { triggerMail};

@@ -22,31 +22,44 @@ const fetchUser = async(req,res,next)=>{
 
 // Creating Endpoint for adding product in cartData
 cartrouter.post('/addtocart', fetchUser ,async(req,res)=>{
-    console.log("Added", req.body.itemId);
-    let userData = await Users.findOne({_id:req.user.id})
-    userData.cartData[req.body.itemId] += 1;
-    await Users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData})
-    res.send("Added");
+    try {
+        console.log("Added", req.body.itemId);
+        let userData = await Users.findOne({_id:req.user.id})
+        userData.cartData[req.body.itemId] += 1;
+        await Users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData})
+        res.send("Added");
+    } catch (error) {
+        console.error("Error in /addtocart:", error);
+        res.status(500).send({ success: false, message: "Internal Server Error", error: error.message });
+    }
 })
 
 // creating endpoint to remove product from cartdata
 cartrouter.post('/removefromcart', fetchUser, async(req,res)=>{
-    console.log("removed", req.body.itemId);
-    let userData = await Users.findOne({_id:req.user.id})
-    if(userData.cartData[req.body.itemId]>0){
-        userData.cartData[req.body.itemId] -= 1;
+    try {
+        console.log("removed", req.body.itemId);
+        let userData = await Users.findOne({_id:req.user.id})
+        if(userData.cartData[req.body.itemId]>0){
+            userData.cartData[req.body.itemId] -= 1;
+        }
+        await Users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData})
+        res.send("Removed");
+    } catch (error) {
+        console.error("Error in /removefromcart:", error);
+        res.status(500).send({ success: false, message: "Internal Server Error", error: error.message });
     }
-    await Users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData})
-    res.send("Removed");
 } )
 
 //Creating Endpoint to get cartdata
 cartrouter.post('/getcart', fetchUser, async(req,res)=>{
-
-    console.log("Get Cart");
-    let userData = await Users.findOne({_id:req.user.id});
-    res.json(userData.cartData); 
-   
+    try {
+        console.log("Get Cart");
+        let userData = await Users.findOne({_id:req.user.id});
+        res.json(userData.cartData); 
+    } catch (error) {
+        console.error("Error in /getcart:", error);
+        res.status(500).send({ success: false, message: "Internal Server Error", error: error.message });
+    }
 })
 
 cartrouter.get('/check', (req,res)=>{

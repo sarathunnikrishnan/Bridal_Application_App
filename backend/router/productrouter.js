@@ -37,7 +37,7 @@ productrouter.post('/addproduct', async(req, res)=>{
         })
     } catch (error) {
         console.error("Error in /addproduct:", error);
-        res.status(500).json({ success: false, message: "Internal Server Error" });
+        res.status(500).json({ success: false, message: "Internal Server Error", error: error.message });
     }
 })
 
@@ -52,7 +52,7 @@ productrouter.post('/removeproduct', async(req,res)=>{
         })
     } catch (error) {
         console.error("Error in /removeproduct:", error);
-        res.status(500).json({ success: false, message: "Internal Server Error" });
+        res.status(500).json({ success: false, message: "Internal Server Error", error: error.message });
     }
 })
 
@@ -64,7 +64,7 @@ productrouter.get('/allproducts', async(req,res)=>{
         res.send(products);
     } catch (error) {
         console.error("Error in /allproducts:", error);
-        res.status(500).send({ success: false, message: "Internal Server Error" });
+        res.status(500).send({ success: false, message: "Internal Server Error", error: error.message });
     }
 })
 
@@ -84,7 +84,7 @@ productrouter.get('/newcollections', async(req,res)=>{
         res.send(newcollection);
     } catch (error) {
         console.error("Error in /newcollections:", error);
-        res.status(500).send({ success: false, message: "Internal Server Error" });
+        res.status(500).send({ success: false, message: "Internal Server Error", error: error.message });
     }
 })
 
@@ -97,7 +97,7 @@ productrouter.get('/popularinwomen',async(req,res)=>{
         res.send(popular_in_women);
     } catch (error) {
         console.error("Error fetching popular_in_women:", error);
-        res.status(500).send({ success: false, message: "Internal Server Error" });
+        res.status(500).send({ success: false, message: "Internal Server Error", error: error.message });
     }
 })
 

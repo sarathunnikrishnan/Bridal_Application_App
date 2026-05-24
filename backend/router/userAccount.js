@@ -27,36 +27,40 @@ useraccountrouter.post('/signup',async(req,res,next)=>{
             res.send({ message: 'Internal server error' });
           }
 },async(req,res)=>{
-    const { formData } = req.body;
+    try {
+        const { formData } = req.body;
         const parsedFormData = JSON.parse(formData)
         const { username, email, password} =  parsedFormData;  
         const passwordHash = await bcrypt.hash(password, 10)
-    let check = await Users.findOne({email});
-    if(check){
-     return res.status(400).json({success:false, errors:"Existing User Found With Same Email Address"})
-    }
-    let cart={};
-    for (let i=0; i<300; i++){
-     cart[i]=0; 
-    }
-    const user = new Users({
-     name : username,
-     email : email,
-     password : passwordHash,
-     cartData: cart,
-    })
+        let check = await Users.findOne({email});
+        if(check){
+         return res.status(400).json({success:false, errors:"Existing User Found With Same Email Address"})
+        }
+        let cart={};
+        for (let i=0; i<300; i++){
+         cart[i]=0; 
+        }
+        const user = new Users({
+         name : username,
+         email : email,
+         password : passwordHash,
+         cartData: cart,
+        })
 
-    await user.save(); 
- 
-    const data = {
-     user : {
-         id: user.id
-     } 
+        await user.save(); 
+     
+        const data = {
+         user : {
+             id: user.id
+         } 
+        }
+     
+        const token = jwt.sign(data, process.env.JWT_SECRET);
+        res.json({success:true, token}) 
+    } catch (error) {
+        console.error("Error in /signup:", error);
+        res.status(500).json({ success: false, message: "Internal Server Error", error: error.message });
     }
- 
-    const token = jwt.sign(data, process.env.JWT_SECRET);
-    res.json({success:true, token}) 
- 
  })
  
  // creating End Point for User Login
@@ -70,23 +74,28 @@ useraccountrouter.post('/signup',async(req,res,next)=>{
     
      next();
  }, async(req,res)=>{
-     let user = await Users.findOne({email:req.body.email});
-     if(user){
-         const passCompare = await bcrypt.compare(req.body.password , user.password)
-         if(passCompare){
-             const data = {
-                 user: {
-                     id: user.id
-                 }
-             }
-             const token = jwt.sign(data, process.env.JWT_SECRET);
-             res.json({success:true,token});
-         }else{
-             res.json({success:false, error:"Wrong Password"});
-         }
-     }else{
-         res.json({success:false, error:"Wrong Email Id"})
-     }
+    try {
+        let user = await Users.findOne({email:req.body.email});
+        if(user){
+            const passCompare = await bcrypt.compare(req.body.password , user.password)
+            if(passCompare){
+                const data = {
+                    user: {
+                        id: user.id
+                    }
+                }
+                const token = jwt.sign(data, process.env.JWT_SECRET);
+                res.json({success:true,token});
+            }else{
+                res.json({success:false, error:"Wrong Password"});
+            }
+        }else{
+            res.json({success:false, error:"Wrong Email Id"})
+        }
+    } catch (error) {
+        console.error("Error in /login:", error);
+        res.status(500).json({ success: false, message: "Internal Server Error", error: error.message });
+    }
  })
 
 useraccountrouter.post('/userotpsend',(req,res,next)=>{

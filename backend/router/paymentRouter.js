@@ -23,7 +23,8 @@ router.post("/makepayment", async(req,res)=>{
         console.log(payment)
         return res.json(payment)
     }catch(error){
-        res.status(500).send(error)
+        console.error("Error in /makepayment:", error);
+        res.status(500).json({ success: false, message: "Internal Server Error", error: error.message || error });
     }
 })
 
