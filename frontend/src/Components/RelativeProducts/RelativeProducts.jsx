@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { API_ENDPOINTS } from "../../utils/constants";
 import './RelativeProduct.css'
 import Items from '../Items/Items'
 import { Container } from 'react-bootstrap'
@@ -7,7 +8,7 @@ const RelativeProducts = () => {
   const [relatedProducts, setRelatedProducts] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:4000/product/relatedproducts?category=bridal')
+    fetch(`${API_ENDPOINTS.RELATED_PRODUCTS}?category=bridal`)
       .then((res) => res.json())
       .then((data) => setRelatedProducts(data))
       .catch((err) => console.error(err));

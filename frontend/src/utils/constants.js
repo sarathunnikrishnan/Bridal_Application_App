@@ -11,6 +11,7 @@ export const API_ENDPOINTS = {
   ADD_TO_CART: `${BASE_URL}/cart/addtocart`,
   REMOVE_FROM_CART: `${BASE_URL}/cart/removefromcart`,
   MAKE_PAYMENT: `${BASE_URL}/order/makepayment`,
+  RELATED_PRODUCTS: `${BASE_URL}/product/relatedproducts`,
 };
 
 export const RAZORPAY_CONFIG = {
