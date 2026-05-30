@@ -50,7 +50,7 @@ const SearchProducts = () => {
                     return null;
                 }
               })
-            ) : ( <h1>Result Not Found</h1>)
+            ) : ( <h1 className="result-not-found">Result Not Found</h1>)
           }
     </div>
     <div className="bridalcategory-loadmore">Explore More</div>

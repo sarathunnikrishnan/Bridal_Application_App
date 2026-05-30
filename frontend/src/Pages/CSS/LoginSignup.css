@@ -27,14 +27,15 @@
     margin-top: 2rem;
 }
 .loginsignup-fields input{
-    height: 2.5rem;
+    height: 3.5rem;
     width: 100%;
-    padding: 1rem;
+    padding: 0 1rem;
     border: 1px solid black;
     outline: none;
     font-size: 1rem;
     border-radius: 10px;
     z-index: 0;
+    box-sizing: border-box;
 }
 .loginsignup-container button{
     width: 100%;
@@ -81,13 +82,21 @@
     text-align: center;
 }
 
-.show-password {
+.password-input-container {
     position: relative;
-    top: -45px;
-    float: right;
+    width: 100%;
+}
+.password-input-container input {
+    padding-right: 2.5rem;
+}
+
+.show-password {
+    position: absolute;
+    top: 50%;
     right: 15px;
-    z-index: 1;
+    transform: translateY(-50%);
     color: black;
-    width: 20px;
-    margin-bottom: -30px;
+    cursor: pointer;
+    margin: 0;
+    z-index: 1;
 }

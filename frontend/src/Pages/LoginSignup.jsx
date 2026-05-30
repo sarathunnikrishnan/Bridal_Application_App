@@ -93,14 +93,19 @@ const LoginSignup = () => {
             placeholder="Email Address"
           />
           {(message.toLocaleLowerCase().includes("email")) ? (<p className="error-message">{message} !!!</p>) : null}
-          <input
-            name="password"
-            value={formData.password} 
-            onChange={changeHandler}
-            type={(!showPassword) ? "password" : "text"}
-            placeholder="Create Password"
-          />
-          <p className="show-password" onClick={showPasswordHandler}>{((!showPassword) ? (<i className="fa-solid fa-eye-slash"></i>) : (<i className="fa-solid fa-eye"></i>))}</p>
+          <div style={{ position: 'relative', display: 'flex', alignItems: 'center', width: '100%' }}>
+            <input
+              name="password"
+              value={formData.password} 
+              onChange={changeHandler}
+              type={(!showPassword) ? "password" : "text"}
+              placeholder="Create Password"
+              style={{ width: '100%', paddingRight: '40px', boxSizing: 'border-box' }}
+            />
+            <span onClick={showPasswordHandler} style={{ position: 'absolute', right: '15px', cursor: 'pointer', color: 'black', zIndex: 10, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              {((!showPassword) ? (<i className="fa-solid fa-eye-slash"></i>) : (<i className="fa-solid fa-eye"></i>))}
+            </span>
+          </div>
           {(message.toLocaleLowerCase().includes("password")) ? (<p className="error-message">{message} !!!</p>) : null}
         </div>
         <button
